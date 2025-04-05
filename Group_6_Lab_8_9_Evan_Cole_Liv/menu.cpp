@@ -85,7 +85,7 @@ int NNMenu(int& selected) {
         if (ch == 72 && selected > 0) 
             selected--;
 
-        else if (ch == 80 && selected < MENU_ITEMS - 1) 
+        else if (ch == 80 && selected < MENU_ITEMS - 2) 
             selected++;
     }
 
