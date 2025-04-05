@@ -1,4 +1,5 @@
 #pragma once
+#include "NN_Classifier.h"
 #include "KNN_Classifier.h"
 #include "Another_Classifier.h"
 #include <iostream>
@@ -10,6 +11,8 @@
 
 void setCursorPosition(int x, int y);
 
-void hideCursor();
+void hideCursor(int state);
 
 int mainMenu(int& selected);
+
+int NNMenu(int& selected);
