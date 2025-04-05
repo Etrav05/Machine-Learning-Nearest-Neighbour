@@ -8,6 +8,8 @@
 
 #define MENU_ITEMS		3
 
+void setCursorPosition(int x, int y);
+
 void hideCursor();
 
 int mainMenu(int& selected);

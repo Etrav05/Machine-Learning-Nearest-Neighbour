@@ -19,13 +19,14 @@ void hideCursor() {                                          // another windows 
 }
 
 int mainMenu(int& selected) {
+    int choice = 0;
     hideCursor();             // hides the cursor while redrawing
     setCursorPosition(0, 0); // redraws the console screen (Windows)
     cout << "Choose between designed classifiers:\n" << endl;
 
-    cout << (selected == 0 ? ">" : " ") << "    NN Classifier\n";
-    cout << (selected == 1 ? ">" : " ") << "    KNN Classifier\n";
-    cout << (selected == 2 ? ">" : " ") << "    Another Classifier\n";
+    cout << (selected == 0 ? ">" : " ") << "    NN Classifier" << endl;
+    cout << (selected == 1 ? ">" : " ") << "    KNN Classifier" << endl;
+    cout << (selected == 2 ? ">" : " ") << "    Another Classifier" << endl;
 
     int ch = _getch();
 
@@ -40,18 +41,18 @@ int mainMenu(int& selected) {
     }
 
     else if (ch == 13) {                     // enter key
-        if (selected == 0) {                // here is the implementation of the menu choice
-            setCursorPosition(0, 6);    
+        setCursorPosition(0, 6);            // print message below menu but continue menus funtion
+
+        if (selected == 0) {              // here is the implementation of the menu choice
             cout << "Implent things here                            " << endl;
+            return 1;                   // return if the user selects NN
         }
 
         if (selected == 1) {
-            setCursorPosition(0, 6);  // print message below menu but continue menus funtion
             KNNClassifer notAvailable;
         }
 
         if (selected == 2) {
-            setCursorPosition(0, 6);
             AnotherClassifer notAvailableAgain;
         }
     }
@@ -60,7 +61,7 @@ int mainMenu(int& selected) {
         // return -1;       // return a special value to indicate "back"
     // }
 
-    return 1;
+    return 0;
 }
 
 /*The application should give an option for the user to enter sample data (x,y,z) and the output is the orientation of the phone.
