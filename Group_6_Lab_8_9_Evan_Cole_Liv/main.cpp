@@ -4,7 +4,6 @@
 
 // TODO:
 // - Make menus go back
-// - Add functionality to the sample data (x,y,z) option
 // - Add functionality to the enter a data file option
 //
 //

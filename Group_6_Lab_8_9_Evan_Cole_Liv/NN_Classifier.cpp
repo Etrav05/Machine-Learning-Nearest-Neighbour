@@ -6,8 +6,35 @@ NNClassifer::NNClassifer() {
     cout << "Must've been the wind" << endl;
 }
 
-void NNClassifer::sampleDataOrientation(double x, double y, double z) {
+/*
+* 
+-z = face up
+ z = face down
+-y = portrait
+ y = portrait upside down
+-x = landscape left
+ x = landscape right
 
+*/
+
+double difference(double i) {
+    if (i > 0) { return  1 - i; }
+    else { return 1 + i; }
+}
+
+void NNClassifer::sampleDataOrientation(double x, double y, double z) {
+    double a = difference(x);
+    double b = difference(y);
+    double c = difference(z);
+    double temp;
+
+    temp = a; // find least difference
+    if (b < temp) temp = b;
+    if (c < temp) temp = c;
+
+    if (temp == a) { cout << (x < 0 ? "\nLandscape left" : "\nLandscape right") << endl; }
+    if (temp == b) { cout << (y < 0 ? "\nPortrait" : "\nPortrait upside down") << endl; }
+    if (temp == c) { cout << (z < 0 ? "\nFace up" : "\nFace down") << endl; }
 }
 
 void NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered) { // output will be orientation 
@@ -40,7 +67,7 @@ void NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int
 
         switch (selected) { 
         case 0: // x
-            cout << "\nEnter value (0 >= 1): ";
+            cout << "\nEnter value (-1 >= 1): ";
             
             try {
                 cin >> x;
@@ -49,21 +76,22 @@ void NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int
                 cout << UICC.what() << endl;
             }
 
-            if (x < 0 || x > 1) {
+            if (x < -1 || x > 1) {
                 x = 0;
                 cout << "Invalid entry" << endl;
                 Sleep(750);
             }
             else 
                 xEntered = 1;
-   
+            
+            selected = 3;
             system("cls");
             break;
         case 1: // y
-            cout << "\nEnter value (0 >= 1): ";
+            cout << "\nEnter value (-1 >= 1): ";
             cin >> y;
 
-            if (y < 0 || y > 1) {
+            if (y < -1 || y > 1) {
                 y = 0;
                 cout << "Invalid entry" << endl;
                 Sleep(750);
@@ -74,10 +102,10 @@ void NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int
             system("cls");
             break;
         case 2: // z
-            cout << "\nEnter value (0 >= 1): ";
+            cout << "\nEnter value (-1 >= 1): ";
             cin >> z;
 
-            if (z < 0 || z > 1) {
+            if (z < -1 || z > 1) {
                 z = 0;
                 cout << "Invalid entry" << endl;
                 Sleep(750);
@@ -94,6 +122,7 @@ void NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int
             else {
                 cout << "Please enter value(s) for: " << (xEntered == 0 ? "x " : " ") << (yEntered == 0 ? "y " : " ") << (zEntered == 0 ? "z " : " ") << endl;
             }
+
             break;
         }
     }
