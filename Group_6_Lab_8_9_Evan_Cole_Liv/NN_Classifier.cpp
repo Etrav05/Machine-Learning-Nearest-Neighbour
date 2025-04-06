@@ -5,6 +5,10 @@ NNClassifer::NNClassifer() {
     cout << "Must've been the wind" << endl;
 }
 
+NNClassifer::sampleDataOrientation(double x, double y, double z) {
+
+}
+
 void NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered) { // output will be orientation 
 
     hideCursor(0);             // hides the cursor while redrawing
@@ -33,26 +37,55 @@ void NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int
         hideCursor(1);                     // show cursor when typing
 
         switch (selected) { 
-        case 0:
+        case 0: // x
             cout << "\nEnter value (0 >= 1): ";
             cin >> x;
-            xEntered = 1;
+
+            if (x < 0 || x > 1) {
+                x = 0;
+                cout << "Invalid entry" << endl;
+                Sleep(750);
+            }
+            else 
+                xEntered = 1;
+   
             system("cls");
             break;
-        case 1:
+        case 1: // y
             cout << "\nEnter value (0 >= 1): ";
             cin >> y;
-            yEntered = 1;
+
+            if (y < 0 || y > 1) {
+                y = 0;
+                cout << "Invalid entry" << endl;
+                Sleep(750);
+            }
+            else
+                yEntered = 1;
+
             system("cls");
             break;
-        case 2:
+        case 2: // z
             cout << "\nEnter value (0 >= 1): ";
             cin >> z;
-            zEntered = 1;
+
+            if (z < 0 || z > 1) {
+                z = 0;
+                cout << "Invalid entry" << endl;
+                Sleep(750);
+            }
+            else
+                zEntered = 1;
+
             system("cls");
             break;
-        case 3:          // done case
-          
+        case 3: // done option
+            if (xEntered == 1 && yEntered == 1 && zEntered == 1) {
+                sampleDataOrientation(x, y, z);
+            }
+            else {
+                cout << "Please enter value(s) for: " << (xEntered == 0 ? "x " : " ") << (yEntered == 0 ? "y " : " ") << (zEntered == 0 ? "z " : " ") << endl;
+            }
             break;
         }
     }
