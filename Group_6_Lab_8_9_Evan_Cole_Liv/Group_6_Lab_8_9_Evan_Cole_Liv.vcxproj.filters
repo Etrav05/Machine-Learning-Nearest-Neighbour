@@ -44,5 +44,8 @@
     <ClInclude Include="NN_Classifier.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Exception_String_Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

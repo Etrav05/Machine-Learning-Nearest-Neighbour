@@ -4,15 +4,14 @@
 
 // TODO:
 // - Make menus go back
-// - Make sure you can only enter values 0 >= 1 during the sample data (x,y,z) option
 // - Add functionality to the sample data (x,y,z) option
 // - Add functionality to the enter a data file option
-// 
+//
 //
 
 // BUGS:
 // - During the sample data (x,y,z) option, if you enter a string it stops showing input/output 
-// 
+// - Expection case to fix the above doesnt work
 //
 
 int main() {

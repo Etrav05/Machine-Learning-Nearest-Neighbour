@@ -135,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Another_Classifier.h" />
+    <ClInclude Include="Exception_String_Input.h" />
     <ClInclude Include="KNN_Classifier.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="NN_Classifier.h" />

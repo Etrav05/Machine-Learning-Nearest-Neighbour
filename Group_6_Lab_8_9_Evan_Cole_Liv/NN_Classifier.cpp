@@ -1,11 +1,12 @@
 #include "NN_Classifier.h"
+#include "Exception_String_Input.h"
 #include "menu.h"
 
 NNClassifer::NNClassifer() {
     cout << "Must've been the wind" << endl;
 }
 
-NNClassifer::sampleDataOrientation(double x, double y, double z) {
+void NNClassifer::sampleDataOrientation(double x, double y, double z) {
 
 }
 
@@ -32,14 +33,21 @@ void NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int
             selected++;
     }
 
-    else if (ch == 13) {                     // enter key
-        setCursorPosition(0, 6);            // print message below menu but continue menus funtion
-        hideCursor(1);                     // show cursor when typing
+    else if (ch == 13) {                       // enter key
+        setCursorPosition(0, 6);              // print message below menu but continue menus funtion
+        hideCursor(1);                       // show cursor when typing
+        // User_Input_Contains_Character UICC; // catch user inputs which contain a character
 
         switch (selected) { 
         case 0: // x
             cout << "\nEnter value (0 >= 1): ";
-            cin >> x;
+            
+            try {
+                cin >> x;
+            }
+            catch (User_Input_Contains_Character UICC) {
+                cout << UICC.what() << endl;
+            }
 
             if (x < 0 || x > 1) {
                 x = 0;
