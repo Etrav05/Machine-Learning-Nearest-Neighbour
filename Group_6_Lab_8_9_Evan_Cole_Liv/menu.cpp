@@ -110,9 +110,16 @@ int NNMenu(int& selected) {
         case 1: // enter a data file option
             double trn[4] = { 0 };
             double tst[4] = { 0 };
-            
-            UnknownLabel unknown;                                  
-            unknown.accessFileNN_UnknownLabel("unknownData.txt", "trainingData.txt", trn, tst);
+            string textFile;
+            hideCursor(1); 
+
+            while (1) {
+                cout << "Enter txt file name here (Include .txt): ";
+                cin >> textFile;
+
+                UnknownLabel unknown;
+                unknown.accessFileNN_UnknownLabel(textFile, "trainingData.txt", trn, tst);
+            }
             break;
         }
     }
