@@ -1,4 +1,5 @@
 #include "menu.h"
+#include "DataPoint.h"
 
 // Group 6: Evan, Cole, Liv
 
@@ -16,10 +17,15 @@
 int main() {
 	int selected = 0; // initialize variable(s)
 	int choice = 0;
+	double trn[4] = { 0 };
+	double tst[4] = { 0 };
 
-	while (choice != 1) { // display the main menu until the user selects ths first option (NN Classifier)
-		choice = mainMenu(selected);
-	}
+	// DataPoint p;
+	// p.accessDataPoint("testingData.txt", "trainingData.txt", trn, tst);
+
+	// while (choice != 1) { // display the main menu until the user selects ths first option (NN Classifier)
+		// choice = mainMenu(selected);
+	// }
 
 	cout << "Chunky" << endl;
 

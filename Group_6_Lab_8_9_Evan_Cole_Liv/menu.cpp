@@ -120,19 +120,7 @@ int NNMenu(int& selected) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-/*The application should give an option for the user to enter sample data (x,y,z) and the output is the orientation of the phone.
-
+/*
   Also, the application should give an option for the user to enter a data file name (e.g., unknownData.txt). 
   In this case, the output of your application is another file named (e.g., result.txt) which includes your data and the corresponding phone orientation. 
   The file format of the result has to be as shown in the following figure:
