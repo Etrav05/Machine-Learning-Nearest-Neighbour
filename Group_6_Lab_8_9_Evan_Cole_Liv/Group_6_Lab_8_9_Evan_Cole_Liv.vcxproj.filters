@@ -30,7 +30,10 @@
     <ClCompile Include="NN_Classifier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DataPoint.cpp">
+    <ClCompile Include="Training.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnknownLabel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,7 +53,10 @@
     <ClInclude Include="Exception_String_Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DataPoint.h">
+    <ClInclude Include="Training.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnknownLabel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

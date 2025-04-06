@@ -128,19 +128,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Another_Classifier.cpp" />
-    <ClCompile Include="DataPoint.cpp" />
+    <ClCompile Include="Training.cpp" />
     <ClCompile Include="KNN_Classifier.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="NN_Classifier.cpp" />
+    <ClCompile Include="UnknownLabel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Another_Classifier.h" />
-    <ClInclude Include="DataPoint.h" />
+    <ClInclude Include="Training.h" />
     <ClInclude Include="Exception_String_Input.h" />
     <ClInclude Include="KNN_Classifier.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="NN_Classifier.h" />
+    <ClInclude Include="UnknownLabel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

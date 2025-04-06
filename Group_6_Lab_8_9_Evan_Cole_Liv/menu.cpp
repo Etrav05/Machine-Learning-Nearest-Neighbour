@@ -61,9 +61,9 @@ int mainMenu(int& selected) {
         }
     }
 
-    // else if (ch == 27) {  // escape key here if we ever need to go back
-           // return -1;       // return a special value to indicate "back"
-    // }
+    else if (ch == 27) {  // escape key here if we ever need to go back
+           return 1;       // return a special value to indicate "back"
+    }
 
     return 0;
 }
