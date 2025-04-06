@@ -2,7 +2,7 @@
 #include "Training.h" // for the calculateDistance function as it is unchanged
 
 UnknownLabel::UnknownLabel() {
-	cout << "Unknown Unknow Unknown" << endl;
+	cout << "Unknown object default construtor" << endl;
 }
 
 void getParsedDataFromUnknown(string values, double* xyzlabel) {
@@ -57,7 +57,7 @@ void UnknownLabel::accessFileNN_UnknownLabel(string testingfile, string training
 		}
 		finTrn.close(); // close the training file
 
-		cout << "\nTest (" << result[0] << ", " << result[1] << ", " << result[2] << ") ";
+		cout << "\nCalculating line " << i + 1 << ": ( " << result[0] << ", " << result[1] << ", " << result[2] << ") ";
 		cout << "Predicted Label: " << result[3] << "\n";
 
 		i++; // increment to the next line of the test file

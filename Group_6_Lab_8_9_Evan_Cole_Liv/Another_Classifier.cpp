@@ -2,6 +2,6 @@
 
 AnotherClassifer::AnotherClassifer() {
 
-	cout << "== Another Classifer is not implemented  ==    " << endl; // print message
+	cout << "  == Another Classifer is not implemented  ==    " << endl; // print message
 
 }

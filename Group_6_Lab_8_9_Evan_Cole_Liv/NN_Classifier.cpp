@@ -7,7 +7,7 @@ NNClassifer::NNClassifer() {
 }
 
 /*
-* 
+
 -z = face up
  z = face down
 -y = portrait

@@ -1,4 +1,5 @@
 #include "menu.h"
+#include "UnknownLabel.h"
 
 using namespace std;
 
@@ -107,7 +108,11 @@ int NNMenu(int& selected) {
         }
             break;
         case 1: // enter a data file option
-
+            double trn[4] = { 0 };
+            double tst[4] = { 0 };
+            
+            UnknownLabel unknown;                                  
+            unknown.accessFileNN_UnknownLabel("unknownData.txt", "trainingData.txt", trn, tst);
             break;
         }
     }
