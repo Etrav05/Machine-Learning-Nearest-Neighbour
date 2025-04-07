@@ -3,12 +3,13 @@
 LINE createLine(double x, double y, double z, int label) {
 	LINE l;
 	string labelNames[6] = { "Face up", "Face down", "Portrait", "Portrait upside down", "Landscape left", "Landscape right" };
+	int labelIndex = label - 1;
 
 	l.x = x;
 	l.y = y;
 	l.z = z;
 	l.label = label;
-	l.labelName = labelNames[label];
+	l.labelName = labelNames[labelIndex];
 	return l;
 }
 
