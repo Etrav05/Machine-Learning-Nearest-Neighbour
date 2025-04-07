@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 #include <windows.h>
 
 using namespace std;
@@ -18,16 +19,11 @@ typedef struct lineNode {
 	struct lineNode* next;
 } LINENODE, *PLINENODE;
 
-LINE createLine(int x, int y);
+LINE createLine(double x, double y, double z, int label);
 
 void addNode(PLINENODE* list, LINE l);
 
 LINE copyLine(LINE l);
 
-void freeLines(PLINENODE head);
-
-
 // functions to save linked list to file
-void saveResultsToArray(double x, double y, double z, int label);
-
-bool saveResultsToFile(string* array);
+bool saveResultsToFile(PLINENODE head);

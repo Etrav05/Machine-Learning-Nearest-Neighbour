@@ -1,17 +1,19 @@
 #include "saveResults.h"
 
-LINE createLine(double x, double y, double z, int label, string labelName) {
+LINE createLine(double x, double y, double z, int label) {
 	LINE l;
+	string labelNames[6] = { "Face up", "Face down", "Portrait", "Portrait upside down", "Landscape left", "Landscape right" };
+
 	l.x = x;
 	l.y = y;
 	l.z = z;
 	l.label = label;
-	l.labelName = labelName;
+	l.labelName = labelNames[label];
 	return l;
 }
 
 void addNode(PLINENODE* list, LINE l) {
-	PLINENODE newNode = (PLINENODE)malloc(sizeof(LINENODE)); // dynamically allocate memory
+	PLINENODE newNode = new LINENODE; // dynamically allocate memory
 
 	if (!newNode) {
 		fprintf(stderr, "Error creating line node");
@@ -26,34 +28,27 @@ void addNode(PLINENODE* list, LINE l) {
 }
 
 LINE copyLine(LINE l) {
-	return createLine(l.x, l.y, l.z, l.label, l.labelName);
+	return createLine(l.x, l.y, l.z, l.label);
 }
 
-void freeLines(PLINENODE line) {
-	PLINENODE temp;
-
-	while (line != NULL) {    // until all line nodes are gone
-		temp = line;	     // temp is line
-		line = line->next;  // move line to the next line
-		free(temp);        // free the temp
-	}
-}
-
-void saveResultsToArray(double x, double y, double z, int label, int line) {
-	string labelNames[6] = { "Face up", "Face down", "Portrait", "Portrait upside down", "Landscape left", "Landscape right" }; // create an array of the lael names 
-	
-
-}
-
-bool saveResultsToFile(string* array) {
+bool saveResultsToFile(PLINENODE head) {
 	string filename = "results.txt";
+	PLINENODE temp = NULL;
+
 	ofstream fout;
 
 	fout.open(filename);
 
 	if (fout.is_open()) {
-		for (int i = 0; i < sizeof(array); i++) {
-			fout << array << endl; // save each line to file
+		while (head != NULL) {                        // until all line nodes printed
+			fout << head->data.x << ","             // print each feature to file
+				 << head->data.y << ","
+				 << head->data.z << ","
+				 << head->data.label << ","
+				 << head->data.labelName << endl; // print in desired format
+			temp = head;                        // temp is line
+			head = head->next;                 // move line to the next line
+			delete temp;                       // free memory as we go
 		}
 
 		fout.close();

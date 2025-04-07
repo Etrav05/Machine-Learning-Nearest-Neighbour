@@ -1,5 +1,6 @@
 #include "UnknownLabel.h"
 #include "saveResults.h"
+#include "saveResults.h"
 #include "Training.h" // for the calculateDistance function as it is unchanged
 
 UnknownLabel::UnknownLabel() {
@@ -21,6 +22,7 @@ void getParsedDataFromUnknown(string values, double* xyzlabel) {
 int UnknownLabel::accessFileNN_UnknownLabel(string testingfile, string trainingfile, double* trn, double* tst) { // access file and specifically parse data (trainingData.txt --- testingData.txt)
 	ifstream finTst;		    // in read mode (specific to this file)
 	finTst.open(testingfile);  // open file	
+	PLINENODE head = NULL;    // create the head of the linked list
 
 	if (!finTst.is_open()) { // make sure the file was opened
 		cout << "Could not find testing file" << endl;
@@ -69,16 +71,18 @@ int UnknownLabel::accessFileNN_UnknownLabel(string testingfile, string trainingf
 			<< setw(8) << result[2] << " )    "
 			<< "Predicted Label: " << (int)result[3] << "\n";
 
-		saveResultsToArray(result[0], result[1], result[2], result[3], i); // save these results to a file
+		LINE line = createLine(result[0], result[1], result[2], result[3]); // save these results to a linked list node
+		addNode(&head, line);                                              // add the node to the linked list
 
 		i++; // increment to the next line of the test file
 	}
 
-	// saveResultsToFile(array); // save these results to a file
+	if (saveResultsToFile(head)) { // save these results to a file, if this passes then print a message
+		cout << "=====+===== =======+===== =====+======+=====+===== =====+======= =====+=====" << endl;
+		cout << "=====+===== This information has been save to file (results.txt) =====+=====" << endl;
+		cout << "=====+===== =======+===== =====+======+=====+===== =====+======= =====+=====" << endl;
+	}
 
-	cout << "=====+===== =======+===== =====+======+=====+===== =====+======= =====+=====" << endl;
-	cout << "=====+===== This information has been save to file (results.txt) =====+=====" << endl;
-	cout << "=====+===== =======+===== =====+======+=====+===== =====+======= =====+=====" << endl;
 	finTst.close();
 	return 0;
 }
