@@ -117,12 +117,12 @@ int NNMenu(int& selected) {
             string textFile;
             hideCursor(1); 
 
-            while (1) {
-                cout << "Enter txt file name here (Include .txt): ";
+            while (!back) {
+                cout << "\nEnter txt file name here (Include .txt): ";
                 cin >> textFile;
 
                 UnknownLabel unknown;
-                unknown.accessFileNN_UnknownLabel(textFile, "trainingData.txt", trn, tst);
+                back = unknown.accessFileNN_UnknownLabel(textFile, "trainingData.txt", trn, tst);
             }
             break;
         }

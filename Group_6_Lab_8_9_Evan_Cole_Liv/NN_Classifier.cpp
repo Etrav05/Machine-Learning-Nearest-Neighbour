@@ -22,6 +22,36 @@ double difference(double i) {
     else { return 1 + i; }
 }
 
+bool acceptSampleData(double& i) {
+    cout << "\nEnter value (-1 >= 1): ";
+
+    string input;
+    cin >> input;
+
+    bool isValid = true;    // set a bool for if the input is acceptable
+
+    for (char c : input) {                                      // now for all the characters in this input
+        if (!isdigit(c) && c != '-' && c != '.' && c != ',') { // check if theya re a digit or an acceptable char (. , or -)
+            isValid = false;                                  // if there is something other than the accpeted digits or chars, then the input is NOT valid
+            cout << "Invalid entry" << endl;
+            Sleep(750);
+            return false;
+        }
+
+        else
+            i = stod(input);
+    }
+
+    if (i < -1 || i > 1) {                               // cheack if the input is between -1 and 1;
+        i = 0;
+        cout << "Invalid entry" << endl;
+        Sleep(750);
+        return false;
+    }
+
+    return true;
+}
+
 void NNClassifer::sampleDataOrientation(double x, double y, double z) {
     setCursorPosition(0, 9);
     
@@ -79,56 +109,28 @@ int NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int&
     else if (ch == 13) {                       // enter key
         setCursorPosition(0, 5);              // print message below menu but continue menus funtion
         hideCursor(1);                       // show cursor when typing
-        // User_Input_Contains_Character UICC; // catch user inputs which contain a character
 
         switch (selected) { 
-        case 0: // x
-            cout << "\nEnter value (-1 >= 1): ";
-            
-            try {
-                cin >> x;
-            }
-            catch (User_Input_Contains_Character UICC) {
-                cout << UICC.what() << endl;
+        case 0: // x          
+            if (acceptSampleData(x)) {  // check each entry for characters
+                xEntered = 1;
             }
 
-            if (x < -1 || x > 1) {
-                x = 0;
-                cout << "Invalid entry" << endl;
-                Sleep(750);
-            }
-            else 
-                xEntered = 1;
-            
             system("cls");
             orientation(xEntered, yEntered, zEntered, x, y, z);
             break;
         case 1: // y
-            cout << "\nEnter value (-1 >= 1): ";
-            cin >> y;
-
-            if (y < -1 || y > 1) {
-                y = 0;
-                cout << "Invalid entry" << endl;
-                Sleep(750);
-            }
-            else
+            if (acceptSampleData(y)) {
                 yEntered = 1;
+            }
 
             system("cls");
             orientation(xEntered, yEntered, zEntered, x, y, z);
             break;
         case 2: // z
-            cout << "\nEnter value (-1 >= 1): ";
-            cin >> z;
-
-            if (z < -1 || z > 1) {
-                z = 0;
-                cout << "Invalid entry" << endl;
-                Sleep(750);
-            }
-            else
+            if (acceptSampleData(z)) { 
                 zEntered = 1;
+            }
 
             system("cls");
             orientation(xEntered, yEntered, zEntered, x, y, z);

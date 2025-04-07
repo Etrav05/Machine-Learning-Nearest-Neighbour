@@ -7,7 +7,7 @@
 // Return the label of that closest point
 
 DataPoint::DataPoint() {
-	cout << "Data data data" << endl;
+	cout << "Data object default constructor" << endl;
 }
 
 void getParsedData(string values, double* xyzlabel) {
@@ -41,8 +41,8 @@ void DataPoint::accessFileNN(string testingfile, string trainingfile, double* tr
 
 	while (getline(finTst, tstline)) {
 		getParsedData(tstline, tst); // get the data of the ith line line { x, y, z, label }
-		double min = 420;          // used to find the minimum (set to a high number so every value will initally be smaller)
-		vector<double> result(5); // vector group (typed double) to hold result values
+		double min = 420;           // used to find the minimum (set to a high number so every value will initally be smaller)
+		vector<double> result(5);  // vector group (typed double) to hold result values
 
 		ifstream finTrn;        // this is why we made a specific fin the file, so we can open out training file concurently
 		finTrn.open(trainingfile);

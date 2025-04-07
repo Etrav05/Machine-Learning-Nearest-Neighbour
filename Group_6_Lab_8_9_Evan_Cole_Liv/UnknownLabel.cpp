@@ -17,29 +17,33 @@ void getParsedDataFromUnknown(string values, double* xyzlabel) {
 	}
 }
 
-void UnknownLabel::accessFileNN_UnknownLabel(string testingfile, string trainingfile, double* trn, double* tst) { // access file and specifically parse data (trainingData.txt --- testingData.txt)
-	ifstream finTst;		   // in read mode (specific to this file)
-	finTst.open(testingfile); // open file	
-	DataPoint point;         // use DataPoint object to calculate distances between data points
+int UnknownLabel::accessFileNN_UnknownLabel(string testingfile, string trainingfile, double* trn, double* tst) { // access file and specifically parse data (trainingData.txt --- testingData.txt)
+	ifstream finTst;		    // in read mode (specific to this file)
+	finTst.open(testingfile);  // open file	
 
 	if (!finTst.is_open()) { // make sure the file was opened
 		cout << "Could not find testing file" << endl;
-		return;
+		Sleep(2000);       // give the user some time to read the error message
+		system("cls");
+		return 1;        // return to menu options
 	}
 
+	DataPoint point;  // use DataPoint object to calculate distances between data points
 	string tstline;
 	int i = 0;
 
 	while (getline(finTst, tstline)) {
 		getParsedData(tstline, tst); // get the data of the ith line line { x, y, z, label }
-		double min = 420;          // used to find the minimum (set to a high number so every value will initally be smaller)
-		vector<double> result(4); // vector group (typed double) to hold result values
+		double min = 420;           // used to find the minimum (set to a high number so every value will initally be smaller)
+		vector<double> result(4);  // vector group (typed double) to hold result values
 
-		ifstream finTrn;        // this is why we made a specific fin the file, so we can open out training file concurently
+		ifstream finTrn;            // this is why we made a specific fin the file, so we can open out training file concurently
 		finTrn.open(trainingfile);
 		if (!finTrn.is_open()) {  // make sure the file was opened again
 			cout << "Could not find training file" << endl;
-			return;
+			Sleep(2000);        // give the user some time to read the error message
+			system("cls");
+			return 1;
 		}
 
 		string trnline;
@@ -49,7 +53,7 @@ void UnknownLabel::accessFileNN_UnknownLabel(string testingfile, string training
 			double distance = point.calculateDistance(trn, tst); // calculate the distance from the given line data to our initial test line data
 			if (distance < min) {      // keep track of the shortest distance
 				min = distance;
-				result[0] = tst[0];  // if we have anew shortest distance, save the test features and the training label to a vector group (to compare labels) 
+				result[0] = tst[0];  // if we have a new shortest distance, save the test features and the training label to a vector group (to compare labels) 
 				result[1] = tst[1];
 				result[2] = tst[2];
 				result[3] = trn[3];
@@ -68,4 +72,5 @@ void UnknownLabel::accessFileNN_UnknownLabel(string testingfile, string training
 	}
 
 	finTst.close();
+	return 0;
 }
