@@ -7,14 +7,12 @@ NNClassifer::NNClassifer() {
 }
 
 /*
-
 -z = face up
  z = face down
 -y = portrait
  y = portrait upside down
 -x = landscape left
  x = landscape right
-
 */
 
 double difference(double i) {
@@ -106,9 +104,9 @@ int NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int&
             selected++;
     }
 
-    else if (ch == 13) {                       // enter key
-        setCursorPosition(0, 5);              // print message below menu but continue menus funtion
-        hideCursor(1);                       // show cursor when typing
+    else if (ch == 13) {          // enter key
+        setCursorPosition(0, 5); // print message below menu but continue menus funtion
+        hideCursor(1);          // show cursor when typing
 
         switch (selected) { 
         case 0: // x          

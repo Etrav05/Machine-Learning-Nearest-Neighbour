@@ -18,3 +18,5 @@ public:
 };
 
 double difference(double i);
+
+bool acceptSampleData(double& i);

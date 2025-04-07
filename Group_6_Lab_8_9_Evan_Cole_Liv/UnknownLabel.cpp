@@ -1,4 +1,5 @@
 #include "UnknownLabel.h"
+#include "saveResults.h"
 #include "Training.h" // for the calculateDistance function as it is unchanged
 
 UnknownLabel::UnknownLabel() {
@@ -68,9 +69,16 @@ int UnknownLabel::accessFileNN_UnknownLabel(string testingfile, string trainingf
 			<< setw(8) << result[2] << " )    "
 			<< "Predicted Label: " << (int)result[3] << "\n";
 
+		saveResultsToArray(result[0], result[1], result[2], result[3], i); // save these results to a file
+
 		i++; // increment to the next line of the test file
 	}
 
+	// saveResultsToFile(array); // save these results to a file
+
+	cout << "=====+===== =======+===== =====+======+=====+===== =====+======= =====+=====" << endl;
+	cout << "=====+===== This information has been save to file (results.txt) =====+=====" << endl;
+	cout << "=====+===== =======+===== =====+======+=====+===== =====+======= =====+=====" << endl;
 	finTst.close();
 	return 0;
 }

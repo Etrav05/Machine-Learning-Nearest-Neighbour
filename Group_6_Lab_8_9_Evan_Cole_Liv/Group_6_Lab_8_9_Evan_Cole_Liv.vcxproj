@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Another_Classifier.cpp" />
+    <ClCompile Include="saveResults.cpp" />
     <ClCompile Include="Training.cpp" />
     <ClCompile Include="KNN_Classifier.cpp" />
     <ClCompile Include="main.cpp" />
@@ -137,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Another_Classifier.h" />
+    <ClInclude Include="saveResults.h" />
     <ClInclude Include="Training.h" />
     <ClInclude Include="KNN_Classifier.h" />
     <ClInclude Include="menu.h" />
