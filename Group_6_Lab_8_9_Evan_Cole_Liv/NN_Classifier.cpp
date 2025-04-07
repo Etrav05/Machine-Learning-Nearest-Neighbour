@@ -54,15 +54,15 @@ void orientation(int xEntered, int yEntered, int zEntered, double x, double y, d
     setCursorPosition(0, 0);
 }
 
-void NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered) { // output will be orientation 
+int NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered) { // output will be orientation 
 
     hideCursor(0);             // hides the cursor while redrawing
     setCursorPosition(0, 0);  // redraws the console screen (Windows)
     cout << "Enter orientation sample data:\n" << endl;
 
-    cout << (selected == 0 ? ">" : " ") << "    x = " << (xEntered == 1 ? x : 0) << endl; // will allow the user to see their entry as they go
-    cout << (selected == 1 ? ">" : " ") << "    y = " << (yEntered == 1 ? y : 0) << endl;
-    cout << (selected == 2 ? ">" : " ") << "    z = " << (zEntered == 1 ? z : 0) << endl;
+    cout << (selected == 0 ? " >" : " ") << "    x = " << (xEntered == 1 ? x : 0) << " " << endl; // will allow the user to see their entry as they go
+    cout << (selected == 1 ? " >" : " ") << "    y = " << (yEntered == 1 ? y : 0) << " " << endl;
+    cout << (selected == 2 ? " >" : " ") << "    z = " << (zEntered == 1 ? z : 0) << " " << endl;
 
     int ch = _getch();
 
@@ -135,6 +135,12 @@ void NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int
             break;
         }
     }
+
+    else if (ch == 27) {
+        return 1;
+    }
+
+    return 0;
 }
 
 void NNClassifer::userDataFile(string filename) { // output another file named result.txt which includes your data (presuming this means the users data file) and the corresponding phone orientation (0.2872,0.8627,-0.9832,1,Face up)

@@ -57,8 +57,12 @@ void UnknownLabel::accessFileNN_UnknownLabel(string testingfile, string training
 		}
 		finTrn.close(); // close the training file
 
-		cout << "\nCalculating line " << i + 1 << ": ( " << result[0] << ", " << result[1] << ", " << result[2] << ") ";
-		cout << "Predicted Label: " << result[3] << "\n";
+		cout << "Calculating line " << setw(3) << i + 1 << ": ( "  // this block is just to make it so the prints will all be aligned (improves readability up to the hundreds)
+			<< fixed << setprecision(5)                           // set the number of decimal places we will print to
+			<< setw(8) << result[0] << ", "                      // setw(x) sets the width that result[0] will print within, and since result[0] was set to a max precision of 5, it will never outgrow this space
+			<< setw(8) << result[1] << ", "
+			<< setw(8) << result[2] << " )    "
+			<< "Predicted Label: " << (int)result[3] << "\n";
 
 		i++; // increment to the next line of the test file
 	}

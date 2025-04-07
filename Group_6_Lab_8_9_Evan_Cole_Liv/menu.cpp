@@ -21,13 +21,14 @@ void hideCursor(int state) {                                          // another
 
 int mainMenu(int& selected) {
     int choice = 0;
+    int back = 0;
     hideCursor(0);             // hides the cursor while redrawing
     setCursorPosition(0, 0);  // redraws the console screen (Windows)
     cout << "Choose between designed classifiers:\n" << endl;
 
-    cout << (selected == 0 ? ">" : " ") << "    NN Classifier" << endl;
-    cout << (selected == 1 ? ">" : " ") << "    KNN Classifier" << endl;
-    cout << (selected == 2 ? ">" : " ") << "    Another Classifier" << endl;
+    cout << (selected == 0 ? " >" : " ") << "    NN Classifier " << endl;
+    cout << (selected == 1 ? " >" : " ") << "    KNN Classifier " << endl;
+    cout << (selected == 2 ? " >" : " ") << "    Another Classifier " << endl;
 
     int ch = _getch();
 
@@ -48,22 +49,22 @@ int mainMenu(int& selected) {
             case 0:                      // NN Classifier option
                 selected = 0;
                 system("cls");
-                while (1) {
-                    NNMenu(selected);
+                while (!back) {
+                    back = NNMenu(selected);
                 }
+                system("cls");
                 break;
             case 1:
                 { KNNClassifer notAvailable; } // was getting error C2360 and the fix was to encase this initialization in { }
                 break;
             case 2:
-                AnotherClassifer notAvailableAgain;
+                { AnotherClassifer notAvailableAgain; }
                 break;
-
         }
     }
 
     else if (ch == 27) {  // escape key here if we ever need to go back
-           return 1;       // return a special value to indicate "back"
+        return 1;       // return a special value to indicate "back"
     }
 
     return 0;
@@ -72,11 +73,13 @@ int mainMenu(int& selected) {
 int NNMenu(int& selected) {
     hideCursor(0);             // hides the cursor while redrawing
     setCursorPosition(0, 0);  // redraws the console screen (Windows)
+    int back = 0;
+
     cout << "[NN Classifier selected]" << endl;
     cout << "Choose option: \n" << endl;
 
-    cout << (selected == 0 ? ">" : " ") << "    Enter sample data" << endl;
-    cout << (selected == 1 ? ">" : " ") << "    Enter a data file" << endl;
+    cout << (selected == 0 ? " >" : " ") << "    Enter sample data " << endl;
+    cout << (selected == 1 ? " >" : " ") << "    Enter a data file " << endl;
     
     int ch = _getch();
 
@@ -102,9 +105,10 @@ int NNMenu(int& selected) {
             double x = 0, y = 0, z = 0;
             int xEntered = 0, yEntered = 0, zEntered = 0;
 
-            while (1) {
-                sampleDataOption.sampleData(selected, x, y, z, xEntered, yEntered, zEntered);
+            while (!back) {
+                back = sampleDataOption.sampleData(selected, x, y, z, xEntered, yEntered, zEntered);
             }
+            system("cls");
         }
             break;
         case 1: // enter a data file option
@@ -124,16 +128,9 @@ int NNMenu(int& selected) {
         }
     }
 
-    // else if (ch == 27) {  // escape key here if we ever need to go back
-           // return -1;       // return a special value to indicate "back"
-    // }
+    else if (ch == 27) {     // escape key here if we ever need to go back
+           return 1;       // return a special value to indicate "back"
+    }
 
     return 0;
 }
-
-
-/*
-  Also, the application should give an option for the user to enter a data file name (e.g., unknownData.txt). 
-  In this case, the output of your application is another file named (e.g., result.txt) which includes your data and the corresponding phone orientation. 
-  The file format of the result has to be as shown in the following figure:
-*/

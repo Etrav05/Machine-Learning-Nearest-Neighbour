@@ -5,7 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <conio.h>    // _getch()
-#include <windows.h> // hide cursors 
+#include <windows.h> // hide cursors
 
 #define MENU_ITEMS		3
 
