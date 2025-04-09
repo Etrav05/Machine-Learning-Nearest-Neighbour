@@ -13,10 +13,11 @@ DataPoint::DataPoint() {
 void getParsedData(string values, double* xyzlabel) {
 	istringstream issValues(values);
 	string value;
-
-	for (int i = 0; i < 4; i++) { // since we know the end of line is after 4 values
+	int i = 0;
+	while (!issValues.eof()) {      // until the end of the line, read each value
 		getline(issValues, value, ',');
 		xyzlabel[i] = stod(value); // stod because we are working with doubles not ints (stoi)
+		i++;
 	}
 }
 
@@ -58,7 +59,7 @@ void DataPoint::accessFileNN(string testingfile, string trainingfile, double* tr
 			double distance = calculateDistance(trn, tst); // calculate the distance from the given line data to our initial test line data
 			if (distance < min) {      // keep track of the shortest distance
 				min = distance;
-				result[0] = tst[0];  // if we have anew shortest distance, save the test features and the training label to a vector group (to compare labels) 
+				result[0] = tst[0];  // if we have a new shortest distance, save the test features and the training label to a vector group (to compare labels) 
 				result[1] = tst[1];
 				result[2] = tst[2];
 				result[3] = tst[3];

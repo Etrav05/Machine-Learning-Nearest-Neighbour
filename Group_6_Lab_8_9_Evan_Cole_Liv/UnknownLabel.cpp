@@ -6,18 +6,6 @@ UnknownLabel::UnknownLabel() {
 	cout << "Unknown object default construtor" << endl;
 }
 
-void getParsedDataFromUnknown(string values, double* xyzlabel) {
-	istringstream issValues(values);
-	string value;
-	int i = 0;
-
-	while (!issValues.eof()) {       // since we DONT know if the data ends at 3 (UnknownData.txt) or 4 (trainingData.txt) features
-		getline(issValues, value, ',');
-		xyzlabel[i] = stod(value); // stod because we are working with doubles not ints (stoi)
-		i++;                      // increament to next feature
-	}
-}
-
 int UnknownLabel::accessFileNN_UnknownLabel(string testingfile, string trainingfile, double* trn, double* tst) { // access file and specifically parse data (trainingData.txt --- testingData.txt)
 	ifstream finTst;		    // in read mode (specific to this file)
 	finTst.open(testingfile);  // open file	
