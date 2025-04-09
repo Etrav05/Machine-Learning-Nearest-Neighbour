@@ -8,9 +8,6 @@
 using namespace std;
 
 class DataPoint {
-	double* features; // (x, y, z)
-	int label;       // 1 -> 6
-
 public:
 
 	DataPoint();

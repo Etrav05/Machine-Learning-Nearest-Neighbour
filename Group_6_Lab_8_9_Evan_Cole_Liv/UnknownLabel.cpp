@@ -1,7 +1,6 @@
 #include "UnknownLabel.h"
 #include "saveResults.h"
 #include "saveResults.h"
-#include "Training.h" // for the calculateDistance function as it is unchanged
 
 UnknownLabel::UnknownLabel() {
 	cout << "Unknown object default construtor" << endl;

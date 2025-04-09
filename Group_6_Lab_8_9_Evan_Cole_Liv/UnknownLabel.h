@@ -7,12 +7,11 @@
 #include <iomanip>
 #include <conio.h>
 #include <windows.h> 
+#include "Training.h"
 
 using namespace std;
 
-class UnknownLabel {
-	double* features; // (x, y, z)
-
+class UnknownLabel : public DataPoint {
 public:
 
 	UnknownLabel();
