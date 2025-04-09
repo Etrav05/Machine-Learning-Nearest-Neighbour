@@ -1,9 +1,9 @@
 #pragma once
-#include <iostream>
+#include "Classifier.h"
 
 using namespace std;
 
-class KNNClassifer {
+class KNNClassifier : public Classifier {
 public:
-	KNNClassifer();
+	void notImplemented();
 };

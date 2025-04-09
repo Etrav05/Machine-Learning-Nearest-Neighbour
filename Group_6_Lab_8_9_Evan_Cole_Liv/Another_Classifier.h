@@ -1,9 +1,9 @@
 #pragma once
-#include <iostream>
+#include "Classifier.h"
 
 using namespace std;
 
-class AnotherClassifer {
+class AnotherClassifer : public Classifier {
 public:
-	AnotherClassifer();
+	void notImplemented();
 };

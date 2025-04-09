@@ -1,6 +1,6 @@
 #include "Another_Classifier.h"
 
-AnotherClassifer::AnotherClassifer() {
+void AnotherClassifer::notImplemented() {
 
 	cout << "  == Another Classifer is not implemented  ==    " << endl; // print message
 

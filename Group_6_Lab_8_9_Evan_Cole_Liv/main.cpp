@@ -10,6 +10,7 @@
 //
 
 int main() {
+	Menu m;
 	int selected = 0; // initialize variable(s)
 	int choice = 0;
 
@@ -22,7 +23,7 @@ int main() {
 
 
 	while (choice != 1) { // display the main menu until the user selects ths first option (NN Classifier)
-		choice = mainMenu(selected);
+		choice = m.mainMenu(selected);
 	}
 
 	cout << "\n\n\n\n~=~ End of program ~=~" << endl; // just a little message

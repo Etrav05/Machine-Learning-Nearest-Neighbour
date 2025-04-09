@@ -1,10 +1,9 @@
 #pragma once
-#include <iostream>
-#include <string>
+#include "Classifier.h"
 
 using namespace std;
 
-class NNClassifer {
+class NNClassifer : public Classifier { // TODO: Make this class only training and classifying (make this one protected)
 public:
 	NNClassifer();
 

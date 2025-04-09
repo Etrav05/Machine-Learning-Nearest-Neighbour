@@ -51,7 +51,8 @@ bool acceptSampleData(double& i) {
 }
 
 void NNClassifer::sampleDataOrientation(double x, double y, double z) {
-    setCursorPosition(0, 9);
+    Menu m;
+    m.setCursorPosition(0, 9);
     
     double a = difference(x);
     double b = difference(y);
@@ -70,8 +71,9 @@ void NNClassifer::sampleDataOrientation(double x, double y, double z) {
 }
 
 void orientation(int xEntered, int yEntered, int zEntered, double x, double y, double z) {
+    Menu m;
     NNClassifer sample;
-    setCursorPosition(0, 8);
+    m.setCursorPosition(0, 8);
 
     if (xEntered == 1 && yEntered == 1 && zEntered == 1) {
         sample.sampleDataOrientation(x, y, z);
@@ -79,13 +81,14 @@ void orientation(int xEntered, int yEntered, int zEntered, double x, double y, d
     else {
         cout << "Please enter value(s) for: " << (xEntered == 0 ? "x " : " ") << (yEntered == 0 ? "y " : " ") << (zEntered == 0 ? "z " : " ") << endl;
     }
-    setCursorPosition(0, 0);
+    m.setCursorPosition(0, 0);
 }
 
 int NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered) { // output will be orientation 
+    Menu m;
 
-    hideCursor(0);             // hides the cursor while redrawing
-    setCursorPosition(0, 0);  // redraws the console screen (Windows)
+    m.hideCursor(0);             // hides the cursor while redrawing
+    m.setCursorPosition(0, 0);  // redraws the console screen (Windows)
     cout << "Enter orientation sample data:\n" << endl;
 
     cout << (selected == 0 ? " >" : " ") << "    x = " << (xEntered == 1 ? x : 0) << " " << endl; // will allow the user to see their entry as they go
@@ -105,8 +108,8 @@ int NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int&
     }
 
     else if (ch == 13) {          // enter key
-        setCursorPosition(0, 5); // print message below menu but continue menus funtion
-        hideCursor(1);          // show cursor when typing
+        m.setCursorPosition(0, 5); // print message below menu but continue menus funtion
+        m.hideCursor(1);          // show cursor when typing
 
         switch (selected) { 
         case 0: // x          

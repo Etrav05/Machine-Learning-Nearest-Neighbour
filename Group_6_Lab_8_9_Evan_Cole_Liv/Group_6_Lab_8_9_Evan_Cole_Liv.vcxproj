@@ -137,6 +137,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Another_Classifier.h" />
+    <ClInclude Include="Classifier.h" />
+    <ClInclude Include="DataPersistance.h" />
+    <ClInclude Include="ReadWriteFile.h" />
     <ClInclude Include="saveResults.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="KNN_Classifier.h" />

@@ -1,7 +1,5 @@
 #pragma once
-#include "NN_Classifier.h"
-#include "KNN_Classifier.h"
-#include "Another_Classifier.h"
+#include "Classifier.h"
 #include <iostream>
 #include <fstream>
 #include <conio.h>    // _getch()
@@ -9,10 +7,14 @@
 
 #define MENU_ITEMS		3
 
-void setCursorPosition(int x, int y);
+class Menu {
+public:
+	void setCursorPosition(int x, int y);
 
-void hideCursor(int state);
+	void hideCursor(int state);
 
-int mainMenu(int& selected);
+	int mainMenu(int& selected);
 
-int NNMenu(int& selected);
+	int NNMenu(int& selected);
+
+};

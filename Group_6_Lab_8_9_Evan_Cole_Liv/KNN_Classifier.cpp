@@ -1,7 +1,7 @@
 #include "KNN_Classifier.h"
 
-KNNClassifer::KNNClassifer() {
+void KNNClassifier::notImplemented() {
 
-		cout << "  == KNN Classifier is not implemented yet ==    " << endl; // print message
+	cout << "  == KNN Classifier is not implemented yet ==    " << endl; // print message
 
 }

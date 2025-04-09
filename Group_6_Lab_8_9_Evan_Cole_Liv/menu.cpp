@@ -1,14 +1,18 @@
 #include "menu.h"
 #include "Model.h"
+#include "KNN_Classifier.h"
+#include "NN_Classifier.h"
+#include "Another_Classifier.h"
+
 
 using namespace std;
 
-void setCursorPosition(int x, int y) {      // this is a function made by windows to set a position to redraw an output from
+void Menu::setCursorPosition(int x, int y) {      // this is a function made by windows to set a position to redraw an output from
     COORD coord = { (SHORT)x, (SHORT)y };  // rather than completly clear and redraw it (fixes the flickering issue)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-void hideCursor(int state) {                                          // another windows made function to hide the cursor while redrawing the terminal
+void Menu::hideCursor(int state) {                                          // another windows made function to hide the cursor while redrawing the terminal
     HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE); // get the handle to the standard output (console)
 
     CONSOLE_CURSOR_INFO cursorInfo;                       // define the cursor info structure
@@ -19,7 +23,7 @@ void hideCursor(int state) {                                          // another
     SetConsoleCursorInfo(consoleHandle, &cursorInfo);  // apply the changes
 }
 
-int mainMenu(int& selected) {
+int Menu::mainMenu(int& selected) {
     int choice = 0;
     int back = 0;
     hideCursor(0);             // hides the cursor while redrawing
@@ -55,10 +59,14 @@ int mainMenu(int& selected) {
                 system("cls");
                 break;
             case 1:
-                { KNNClassifer notAvailable; } // was getting error C2360 and the fix was to encase this initialization in { }
+                { KNNClassifier notAvailable; 
+                  notAvailable.notImplemented();
+                } 
                 break;
             case 2:
-                { AnotherClassifer notAvailableAgain; }
+                { AnotherClassifer notAvailableAgain; 
+                  notAvailableAgain.notImplemented();
+                }
                 break;
         }
     }
@@ -70,7 +78,7 @@ int mainMenu(int& selected) {
     return 0;
 }
 
-int NNMenu(int& selected) {
+int Menu::NNMenu(int& selected) {
     hideCursor(0);             // hides the cursor while redrawing
     setCursorPosition(0, 0);  // redraws the console screen (Windows)
     int back = 0;

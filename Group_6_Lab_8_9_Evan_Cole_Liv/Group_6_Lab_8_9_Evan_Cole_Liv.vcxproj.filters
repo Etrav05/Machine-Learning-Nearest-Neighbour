@@ -56,5 +56,14 @@
     <ClInclude Include="saveResults.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Classifier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadWriteFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataPersistance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
