@@ -142,7 +142,3 @@ int NNClassifer::sampleData(int& selected, double& x, double& y, double& z, int&
 
     return 0;
 }
-
-void NNClassifer::userDataFile(string filename) { // output another file named result.txt which includes your data (presuming this means the users data file) and the corresponding phone orientation (0.2872,0.8627,-0.9832,1,Face up)
-
-}
