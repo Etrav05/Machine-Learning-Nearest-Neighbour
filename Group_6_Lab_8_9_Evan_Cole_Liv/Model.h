@@ -12,7 +12,7 @@ public:
 
 	DataPoint();
 
-	void accessFileNN(string testingfile, string trainingfile, double* trn, double* tst); // access file and specifically parse data
+	int accessFileNN(string testingfile, string trainingfile, double* trn, double* tst); // access file and specifically parse data
 
 	double calculateDistance(double* trn, double* tst); // calculate between given point and another point
 

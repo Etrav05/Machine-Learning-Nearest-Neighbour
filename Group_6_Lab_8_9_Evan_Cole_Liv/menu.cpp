@@ -1,5 +1,5 @@
 #include "menu.h"
-#include "UnknownLabel.h"
+#include "Model.h"
 
 using namespace std;
 
@@ -121,8 +121,8 @@ int NNMenu(int& selected) {
                 cout << "\nEnter txt file name here (Include .txt): ";
                 cin >> textFile;
 
-                UnknownLabel unknown;
-                back = unknown.accessFileNN_UnknownLabel(textFile, "trainingData.txt", trn, tst);
+                DataPoint data;
+                back = data.accessFileNN(textFile, "trainingData.txt", trn, tst);
             }
             break;
         }
