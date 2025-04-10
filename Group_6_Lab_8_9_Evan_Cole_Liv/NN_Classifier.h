@@ -7,7 +7,7 @@ using namespace std;
 
 class NNClassifer : public Classifier { // TODO: Make this class only training and classifying (make this one protected)
 public:
-	void sampleDataOrientation(double x, double y, double z);
+	void performClassification_SampleData(double x, double y, double z);
 
-	int performClassification(string testingfile, string trainingfile, double* trn, double* tst);
+	int performClassification_File(string testingfile, string trainingfile, double* trn, double* tst);
 };

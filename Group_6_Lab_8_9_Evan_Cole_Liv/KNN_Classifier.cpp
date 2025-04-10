@@ -6,7 +6,14 @@ void KNNClassifier::notImplemented() {
 
 }
 
-int KNNClassifier::performClassification(string testingfile, string trainingfile, double* trn, double* tst) {
+void KNNClassifier::performClassification_SampleData(double x, double y, double z) {
+
+	cout << "  == KNN Classifier is not implemented yet ==    " << endl; // print message
+
+}
+
+
+int KNNClassifier::performClassification_File(string testingfile, string trainingfile, double* trn, double* tst) {
 
 	cout << "  == KNN Classifier is not implemented yet ==    " << endl; // print message
 

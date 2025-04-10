@@ -33,6 +33,8 @@ int Menu::mainMenu(int& selected) {
     cout << (selected == 1 ? " >" : " ") << "    KNN Classifier " << endl;
     cout << (selected == 2 ? " >" : " ") << "    Another Classifier " << endl;
 
+    cout << "\n\n\n\n\n[Note: press ENTER on your option --- press ESC to go back]" << endl;
+
     int ch = _getch();
 
     if (ch == 224) {
@@ -129,7 +131,7 @@ int Menu::NNMenu(int& selected) {
                 cin >> textFile;
 
                 NNClassifer data;
-                back = data.performClassification(textFile, "trainingData.txt", trn, tst);
+                back = data.performClassification_File(textFile, "trainingData.txt", trn, tst);
             }
             break;
         }

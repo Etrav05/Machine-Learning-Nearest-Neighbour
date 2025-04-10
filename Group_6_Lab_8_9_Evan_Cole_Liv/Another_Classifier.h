@@ -7,5 +7,7 @@ class AnotherClassifer : public Classifier {
 public:
 	void notImplemented();
 
-	int performClassification(string testingfile, string trainingfile, double* trn, double* tst);
+	void performClassification_SampleData(double x, double y, double z);
+
+	int performClassification_File(string testingfile, string trainingfile, double* trn, double* tst);
 };

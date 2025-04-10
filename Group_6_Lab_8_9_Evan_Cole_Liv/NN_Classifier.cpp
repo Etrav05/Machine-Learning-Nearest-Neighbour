@@ -11,7 +11,7 @@
  x = landscape right
 */
 
-void NNClassifer::sampleDataOrientation(double x, double y, double z) {
+void NNClassifer::performClassification_SampleData(double x, double y, double z) {
     Menu m;
     Position p;
     m.setCursorPosition(0, 9);
@@ -32,7 +32,7 @@ void NNClassifer::sampleDataOrientation(double x, double y, double z) {
     if (temp == c) { cout << (z < 0 ? "Face up" : "Face down") << endl; }
 }
 
-int NNClassifer::performClassification(string testingfile, string trainingfile, double* trn, double* tst) {
+int NNClassifer::performClassification_File(string testingfile, string trainingfile, double* trn, double* tst) {
     ifstream finTst;		   // in read mode (specific to this file)
     finTst.open(testingfile); // open file	
     PLINENODE head = NULL;   // create the head of the linked list
