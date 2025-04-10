@@ -2,7 +2,7 @@
 #include "KNN_Classifier.h"
 #include "NN_Classifier.h"
 #include "Another_Classifier.h"
-
+#include "Exception_SampleInput.h"
 
 using namespace std;
 
@@ -107,7 +107,7 @@ int Menu::NNMenu(int& selected) {
         case 0: // enter sample data (x,y,z) option
         {
             system("cls");
-            NNClassifer sampleDataOption;
+            Menu sampleDataOption;
             int selected = 0;
             double x = 0, y = 0, z = 0;
             int xEntered = 0, yEntered = 0, zEntered = 0;
@@ -137,6 +137,102 @@ int Menu::NNMenu(int& selected) {
 
     else if (ch == 27) {     // escape key here if we ever need to go back
            return 1;       // return a special value to indicate "back"
+    }
+
+    return 0;
+}
+
+int Menu::sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered) { // output will be orientation 
+    Menu m;
+    Position p;
+
+    m.hideCursor(0);             // hides the cursor while redrawing
+    m.setCursorPosition(0, 0);  // redraws the console screen (Windows)
+    cout << "Enter orientation sample data:\n" << endl;
+
+    cout << (selected == 0 ? " >" : " ") << "    x = " << (xEntered == 1 ? x : 0) << " " << endl; // will allow the user to see their entries as they go
+    cout << (selected == 1 ? " >" : " ") << "    y = " << (yEntered == 1 ? y : 0) << " " << endl;
+    cout << (selected == 2 ? " >" : " ") << "    z = " << (zEntered == 1 ? z : 0) << " " << endl;
+
+    int ch = _getch();
+
+    if (ch == 224) {
+        ch = _getch();
+
+        if (ch == 72 && selected > 0) // up Arrow
+            selected--;
+
+        else if (ch == 80 && selected < MENU_ITEMS - 1) // down Arrow
+            selected++;
+    }
+
+    else if (ch == 13) {          // enter key
+        m.setCursorPosition(0, 5); // print message below menu but continue menus funtion
+        m.hideCursor(1);          // show cursor when typing
+
+        switch (selected) {
+        case 0: // x          
+            try {
+                acceptSampleData(x);
+                xEntered = 1;
+            }
+
+            catch (Character_Detected cd) {
+                cout << cd.what() << endl;
+                Sleep(1500);
+            }
+
+            catch (Greater_Or_Less_Than_Range glr) {
+                cout << glr.what() << endl;
+                Sleep(1500);
+            }
+
+            system("cls");
+            p.orientation(xEntered, yEntered, zEntered, x, y, z);
+            break;
+        case 1: // y
+            try {
+                acceptSampleData(y);
+                yEntered = 1;
+            }
+
+            catch (Character_Detected cd) {
+                cout << cd.what() << endl;
+                Sleep(1500);
+            }
+
+            catch (Greater_Or_Less_Than_Range glr) {
+                cout << glr.what() << endl;
+                Sleep(1500);
+            }
+
+            system("cls");
+            p.orientation(xEntered, yEntered, zEntered, x, y, z);
+            break;
+        case 2: // z
+            try {
+                acceptSampleData(z);
+                zEntered = 1;
+            }
+
+            catch (Character_Detected cd) {
+                cout << cd.what() << endl;
+                Sleep(1500);
+            }
+
+            catch (Greater_Or_Less_Than_Range glr) {
+                cout << glr.what() << endl;
+                Sleep(1500);
+            }
+
+            system("cls");
+            p.orientation(xEntered, yEntered, zEntered, x, y, z);
+            break;
+        }
+    }
+
+    else if (ch == 27) {
+        return 1;
     }
 
     return 0;

@@ -9,7 +9,5 @@ class NNClassifer : public Classifier { // TODO: Make this class only training a
 public:
 	void sampleDataOrientation(double x, double y, double z);
 
-	int sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered); // output will be orientation 
-
 	int performClassification(string testingfile, string trainingfile, double* trn, double* tst);
 };

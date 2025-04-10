@@ -17,4 +17,5 @@ public:
 
 	int NNMenu(int& selected);
 
+	int sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered);
 };

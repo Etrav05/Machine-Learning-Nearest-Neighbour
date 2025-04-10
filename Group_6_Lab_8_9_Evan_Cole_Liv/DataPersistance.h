@@ -10,5 +10,4 @@ public:
 	virtual void getParsedData(string values, double* xyzlabel) = 0;
 
 	virtual bool saveResultsToFile(PLINENODE head) = 0;
-
 };
