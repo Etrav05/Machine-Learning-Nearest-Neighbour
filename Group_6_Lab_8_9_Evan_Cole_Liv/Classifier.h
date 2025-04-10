@@ -8,6 +8,5 @@ using namespace std;
 class Classifier {
 public:
 
-	virtual void notImplemented() { cout << "Not implemented" << endl; };
-
+	virtual int performClassification(string testingfile, string trainingfile, double* trn, double* tst) = 0;
 };

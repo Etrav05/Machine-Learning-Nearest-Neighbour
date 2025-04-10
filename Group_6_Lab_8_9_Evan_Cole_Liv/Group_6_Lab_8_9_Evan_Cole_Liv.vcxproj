@@ -128,8 +128,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Another_Classifier.cpp" />
-    <ClCompile Include="saveResults.cpp" />
-    <ClCompile Include="Model.cpp" />
+    <ClCompile Include="Position.cpp" />
+    <ClCompile Include="Exception_SampleInput.cpp" />
+    <ClCompile Include="ReadWriteFile.cpp" />
+    <ClCompile Include="Linked_List.cpp" />
     <ClCompile Include="KNN_Classifier.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
@@ -139,9 +141,10 @@
     <ClInclude Include="Another_Classifier.h" />
     <ClInclude Include="Classifier.h" />
     <ClInclude Include="DataPersistance.h" />
+    <ClInclude Include="Position.h" />
+    <ClInclude Include="Exception_SampleInput.h" />
     <ClInclude Include="ReadWriteFile.h" />
-    <ClInclude Include="saveResults.h" />
-    <ClInclude Include="Model.h" />
+    <ClInclude Include="Linked_List.h" />
     <ClInclude Include="KNN_Classifier.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="NN_Classifier.h" />

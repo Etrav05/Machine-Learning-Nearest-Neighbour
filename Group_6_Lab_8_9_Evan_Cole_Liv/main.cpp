@@ -1,5 +1,4 @@
 #include "menu.h"
-#include "Model.h"
 
 // Group 6: Evan, Cole, Liv
 

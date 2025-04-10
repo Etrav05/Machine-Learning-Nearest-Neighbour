@@ -1,5 +1,4 @@
 #include "menu.h"
-#include "Model.h"
 #include "KNN_Classifier.h"
 #include "NN_Classifier.h"
 #include "Another_Classifier.h"
@@ -129,8 +128,8 @@ int Menu::NNMenu(int& selected) {
                 cout << "\nEnter txt file name here (Include .txt): ";
                 cin >> textFile;
 
-                DataPoint data;
-                back = data.accessFileNN(textFile, "trainingData.txt", trn, tst);
+                NNClassifer data;
+                back = data.performClassification(textFile, "trainingData.txt", trn, tst);
             }
             break;
         }

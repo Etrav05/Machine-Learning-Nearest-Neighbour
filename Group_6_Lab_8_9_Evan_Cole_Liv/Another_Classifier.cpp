@@ -2,6 +2,13 @@
 
 void AnotherClassifer::notImplemented() {
 
-	cout << "  == Another Classifer is not implemented  ==    " << endl; // print message
+	cout << "  == Another Classifier is not implemented yet ==    " << endl;
 
+}
+
+int AnotherClassifer::performClassification(string testingfile, string trainingfile, double* trn, double* tst) {
+
+	cout << "  == Another Classifier is not implemented yet ==    " << endl; // print message
+
+	return 0;
 }

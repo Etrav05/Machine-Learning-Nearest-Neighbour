@@ -7,11 +7,11 @@
 using namespace std;
 
 typedef struct line {
-	double x;
-	double y;
-	double z;
-	int label;
-	string labelName;
+	double x = 0;
+	double y = 0;
+	double z = 0;
+	int label = 0;
+	string labelName = "";
 } LINE;
 
 typedef struct lineNode {
@@ -24,6 +24,3 @@ LINE createLine(double x, double y, double z, int label);
 void addNode(PLINENODE* list, LINE l);
 
 LINE copyLine(LINE l);
-
-// functions to save linked list to file
-bool saveResultsToFile(PLINENODE head);

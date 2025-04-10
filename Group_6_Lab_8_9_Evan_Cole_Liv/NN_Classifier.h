@@ -1,21 +1,15 @@
 #pragma once
+#include "ReadWriteFile.h"
 #include "Classifier.h"
+#include "Position.h"
 
 using namespace std;
 
 class NNClassifer : public Classifier { // TODO: Make this class only training and classifying (make this one protected)
 public:
-	NNClassifer();
-
 	void sampleDataOrientation(double x, double y, double z);
 
 	int sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered); // output will be orientation 
-	
-	void userDataFile(string filename); // output will be another file named result.txt which includes your data (presuming this means the users data file) and the corresponding phone orientation (0.2872,0.8627,-0.9832,1,Face up)
 
-	friend void orientation(int xEntered, int yEntered, int zEntered, double x, double y, double z);
+	int performClassification(string testingfile, string trainingfile, double* trn, double* tst);
 };
-
-double difference(double i);
-
-bool acceptSampleData(double& i);
