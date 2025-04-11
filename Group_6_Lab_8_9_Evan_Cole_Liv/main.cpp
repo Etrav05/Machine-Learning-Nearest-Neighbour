@@ -2,12 +2,6 @@
 
 // Group 6: Evan, Cole, Liv
 
-// TODO: Include more explicit error handling with specific error class
-// 
-
-// BUGS:
-//
-
 int main() {
 	Menu m;
 	int selected = 0; // initialize variable(s)

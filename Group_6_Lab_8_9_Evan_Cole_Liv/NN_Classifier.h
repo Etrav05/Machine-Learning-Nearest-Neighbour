@@ -5,9 +5,9 @@
 
 using namespace std;
 
-class NNClassifer : public Classifier { // TODO: Make this class only training and classifying (make this one protected)
+class NNClassifer : protected Classifier { // TODO: Make this class only training and classifying (make this one protected)
 public:
-	void performClassification_SampleData(double x, double y, double z);
+	void training(vector<vector<double>>& data);
 
-	int performClassification_File(string testingfile, string trainingfile, double* trn, double* tst);
+	vector<double> performClassification(vector<double>& testPoint, vector<vector<double>>& trainingGroup);
 };

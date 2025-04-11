@@ -121,17 +121,31 @@ int Menu::NNMenu(int& selected) {
         }
             break;
         case 1: // enter a data file option
-            double trn[4] = { 0 };
-            double tst[4] = { 0 };
-            string textFile;
+            string testFile;
+            string trainingFile = "trainingData.txt";
             hideCursor(1); 
 
-            while (!back) {
+            while (!back) { //TODO: make a new back function
                 cout << "\nEnter txt file name here (Include .txt): ";
-                cin >> textFile;
+                cin >> testFile;
 
                 NNClassifer data;
-                back = data.performClassification_File(textFile, "trainingData.txt", trn, tst);
+                ReadWriteFile rwf;
+
+                vector<vector<double>> trainingData = rwf.createCoordinateGroups(trainingFile);
+                vector<vector<double>> testData = rwf.createCoordinateGroups(testFile);
+               
+                for (int i = 0; i < testData.size(); i++) {
+                    vector<double> testPoint = testData[i];
+                    vector<double> result = data.performClassification(testPoint, trainingData);
+
+                    cout << "Calculating line " << setw(3) << i + 1 << ": ( "  // this block is just to make it so the prints will all be aligned (improves readability up to the hundreds)
+                        << fixed << setprecision(5)                           // set the number of decimal places we will print to
+                        << setw(8) << result[0] << ", "                      // setw(x) sets the width that result[0] will print within, and since result[0] was set to a max precision of 5, it will never outgrow this space
+                        << setw(8) << result[1] << ", "
+                        << setw(8) << result[2] << " )    "
+                        << "Predicted Label: " << (int)result[3] << "\n";
+                }
             }
             break;
         }
@@ -190,7 +204,7 @@ int Menu::sampleData(int& selected, double& x, double& y, double& z, int& xEnter
             }
 
             system("cls");
-            p.orientation(xEntered, yEntered, zEntered, x, y, z);
+            // p.orientation(xEntered, yEntered, zEntered, x, y, z);
             break;
         case 1: // y
             try {
@@ -209,7 +223,7 @@ int Menu::sampleData(int& selected, double& x, double& y, double& z, int& xEnter
             }
 
             system("cls");
-            p.orientation(xEntered, yEntered, zEntered, x, y, z);
+            // p.orientation(xEntered, yEntered, zEntered, x, y, z);
             break;
         case 2: // z
             try {
@@ -228,7 +242,7 @@ int Menu::sampleData(int& selected, double& x, double& y, double& z, int& xEnter
             }
 
             system("cls");
-            p.orientation(xEntered, yEntered, zEntered, x, y, z);
+            // p.orientation(xEntered, yEntered, zEntered, x, y, z);
             break;
         }
     }

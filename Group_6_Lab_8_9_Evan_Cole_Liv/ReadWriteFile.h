@@ -11,7 +11,9 @@ using namespace std;
 class ReadWriteFile : public DataPersistance {
 public:
 
-	void getParsedData(string values, double* xyzlabel);
+	vector<double> getParsedData(string& line); // parse each line from file
+
+	vector<vector<double>> createCoordinateGroups(string& filename); // create a vector which contatains the coordinates + label as individual groupings
 
 	bool saveResultsToFile(PLINENODE head);
 

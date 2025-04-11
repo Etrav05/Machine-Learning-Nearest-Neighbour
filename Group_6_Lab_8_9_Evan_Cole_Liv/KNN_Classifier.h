@@ -3,11 +3,11 @@
 
 using namespace std;
 
-class KNNClassifier : public Classifier {
+class KNNClassifier : protected Classifier {
 public:
 	void notImplemented();
 
-	void performClassification_SampleData(double x, double y, double z);
+	void training(vector<vector<double>>& data);
 
-	int performClassification_File(string testingfile, string trainingfile, double* trn, double* tst);
+	vector<double> performClassification(vector<double>& testPoint, vector<vector<double>>& trainingGroup);
 };

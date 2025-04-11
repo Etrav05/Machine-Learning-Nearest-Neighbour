@@ -1,16 +1,34 @@
 #include "ReadWriteFile.h"
 
-void ReadWriteFile::getParsedData(string values, double* xyzlabel) {
-	istringstream issValues(values);
+vector<double> ReadWriteFile::getParsedData(string& line) {
+	istringstream issLine(line);
 	string value;
-	int i = 0;
-	while (!issValues.eof()) {       // until the end of the line, read each value
-		getline(issValues, value, ',');
-		xyzlabel[i] = stod(value); // stod because we are working with doubles not ints (stoi)
-		i++;
+	vector<double> result;
+
+	while (!issLine.eof()) {
+		getline(issLine, value, ',');
+		result.push_back(stod(value));
 	}
+
+	return result;
 }
 
+vector<vector<double>> ReadWriteFile::createCoordinateGroups(string& filename) {
+	vector<vector<double>> group; // initialize group
+	ifstream infile(filename);   // open file as read
+	string line;                // initialize line
+
+	while (getline(infile, line)) {  // while we can still get lines from the file
+		if (!line.empty()) {        // if its not empty 
+			vector<double> parsed = getParsedData(line); // pased the data
+			group.push_back(parsed);                    // push it to the vector<vector> group
+		}
+	}
+
+	return group;
+}
+
+// TODO: update to match above
 bool ReadWriteFile::saveResultsToFile(PLINENODE head) {
 	string filename = "results.txt";
 	PLINENODE temp = NULL;

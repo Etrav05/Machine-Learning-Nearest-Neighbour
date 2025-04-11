@@ -7,9 +7,8 @@
 
 class Position {
 public:
-	double difference(double i);
 
-	double calculateDistance(double* trn, double* tst); // calculate between given point and another point
+	double calculateDistance(vector<double>& trn, vector<double>& tst); // calculate between given point and another point
 
-	void orientation(int xEntered, int yEntered, int zEntered, double x, double y, double z);
+	// void orientation(int xEntered, int yEntered, int zEntered, double x, double y, double z);
 };

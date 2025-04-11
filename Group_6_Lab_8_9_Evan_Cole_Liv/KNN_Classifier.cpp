@@ -6,16 +6,16 @@ void KNNClassifier::notImplemented() {
 
 }
 
-void KNNClassifier::performClassification_SampleData(double x, double y, double z) {
+void KNNClassifier::training(vector<vector<double>>& data) {
 
 	cout << "  == KNN Classifier is not implemented yet ==    " << endl; // print message
 
 }
 
 
-int KNNClassifier::performClassification_File(string testingfile, string trainingfile, double* trn, double* tst) {
+vector<double> KNNClassifier::performClassification(vector<double>& testPoint, vector<vector<double>>& trainingGroup) {
 
 	cout << "  == KNN Classifier is not implemented yet ==    " << endl; // print message
 
-	return 0;
+	return {};
 }

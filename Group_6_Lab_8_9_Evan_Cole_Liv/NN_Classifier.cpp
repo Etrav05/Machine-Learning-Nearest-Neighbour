@@ -11,11 +11,40 @@
  x = landscape right
 */
 
+void NNClassifer::training(vector<vector<double>>& data) {
+    this->trainingData = data;
+}
+
+vector<double> NNClassifer::performClassification(vector<double>& testPoint, vector<vector<double>>& trainingGroup) {
+    vector<double> result(5);
+    Position p;
+
+    double min = 420;
+
+
+    for (vector<double>& trainingPoint : trainingGroup) { // for each training point in our traing group
+        double distance = p.calculateDistance(testPoint, trainingPoint);
+
+        if (distance < min) {          // keep track of the shortest distance
+            min = distance;
+
+            result[0] = testPoint[0];     // if we have a new shortest distance, save the test features and the training label to a vector group (to compare labels) 
+            result[1] = testPoint[1];
+            result[2] = testPoint[2];
+            result[3] = (trainingPoint.size() > 3) ? trainingPoint[3] : -1;
+            result[4] = (testPoint.size() > 3) ? testPoint[3] : -1; // Only if the testpoint 3 exists (so with the training and test files) then take it, else leave it as -1
+        }
+    }
+
+    return result;
+}
+
+/*
 void NNClassifer::performClassification_SampleData(double x, double y, double z) {
     Menu m;
     Position p;
     m.setCursorPosition(0, 9);
-    
+
     double a = p.difference(x);
     double b = p.difference(y);
     double c = p.difference(z);
@@ -31,7 +60,9 @@ void NNClassifer::performClassification_SampleData(double x, double y, double z)
     if (temp == b) { cout << (y < 0 ? "Portrait" : "Portrait upside down") << endl; }
     if (temp == c) { cout << (z < 0 ? "Face up" : "Face down") << endl; }
 }
+*/
 
+/*
 int NNClassifer::performClassification_File(string testingfile, string trainingfile, double* trn, double* tst) {
     ifstream finTst;		   // in read mode (specific to this file)
     finTst.open(testingfile); // open file	
@@ -51,27 +82,27 @@ int NNClassifer::performClassification_File(string testingfile, string trainingf
 
     while (getline(finTst, tstline)) {
         rwf.getParsedData(tstline, tst); // get the data of the ith line line { x, y, z, label }
-        double min = 420;           // used to find the minimum (set to a high number so every value will initally be smaller)
-        vector<double> result(5);  // vector group (typed double) to hold result values
+        double min = 420;               // used to find the minimum (set to a high number so every value will initally be smaller)
+        vector<double> result(5);      // vector group (typed double) to hold result values
 
-        ifstream finTrn;        // this is why we made a specific fin the file, so we can open out training file concurently
+        ifstream finTrn;             // this is why we made a specific fin the file, so we can open out training file concurently
         finTrn.open(trainingfile);
-        if (!finTrn.is_open()) {  // make sure the file was opened again
+        if (!finTrn.is_open()) {   // make sure the file was opened again
             cout << "Could not find training file" << endl;
-            Sleep(2000);        // give the user some time to read the error message
+            Sleep(2000);         // give the user some time to read the error message
             system("cls");
             return 1;
         }
 
         string trnline;
         while (getline(finTrn, trnline)) {
-            rwf.getParsedData(trnline, trn); // get the data of each line from the training file { x, y, z, label }
+            rwf.getParsedData(trnline, trn);  // get the data of each line from the training file { x, y, z, label }
 
             double distance = p.calculateDistance(trn, tst); // calculate the distance from the given line data to our initial test line data
-            if (distance < min) {      // keep track of the shortest distance
+            if (distance < min) {          // keep track of the shortest distance
                 min = distance;
 
-                result[0] = tst[0];  // if we have a new shortest distance, save the test features and the training label to a vector group (to compare labels) 
+                result[0] = tst[0];     // if we have a new shortest distance, save the test features and the training label to a vector group (to compare labels) 
                 result[1] = tst[1];
                 result[2] = tst[2];
                 result[3] = trn[3];
@@ -92,6 +123,7 @@ int NNClassifer::performClassification_File(string testingfile, string trainingf
 
         i++; // increment to the next line of the test file
     }
+
     if (rwf.saveResultsToFile(head)) { // save these results to a file, if this passes then print a message
         cout << "=====+===== =======+===== =====+======+=====+===== =====+======= =====+=====" << endl;
         cout << "=====+===== This information has been save to file (results.txt) =====+=====" << endl;
@@ -101,3 +133,4 @@ int NNClassifer::performClassification_File(string testingfile, string trainingf
     finTst.close();
     return 0;
 }
+*/
