@@ -160,7 +160,8 @@ int Menu::NNMenu(int& selected) {
 
 int Menu::sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered) { // output will be orientation 
     Menu m;
-    Position p;
+    NNClassifer data;
+    ReadWriteFile rwf;
 
     m.hideCursor(0);             // hides the cursor while redrawing
     m.setCursorPosition(0, 0);  // redraws the console screen (Windows)
@@ -186,6 +187,9 @@ int Menu::sampleData(int& selected, double& x, double& y, double& z, int& xEnter
         m.setCursorPosition(0, 5); // print message below menu but continue menus funtion
         m.hideCursor(1);          // show cursor when typing
 
+        string trainingFile = "trainingData.txt";
+        vector<vector<double>> trainingData = rwf.createCoordinateGroups(trainingFile);
+
         switch (selected) {
         case 0: // x          
             try {
@@ -204,7 +208,13 @@ int Menu::sampleData(int& selected, double& x, double& y, double& z, int& xEnter
             }
 
             system("cls");
-            // p.orientation(xEntered, yEntered, zEntered, x, y, z);
+            if (xEntered == 1 && yEntered == 1 && zEntered == 1) {
+                vector<double> testPoint = { x, y, z };
+                vector<double> result = data.performClassification(testPoint, trainingData);
+
+                m.setCursorPosition(0, 8);
+                cout << "Predicted label: " << result[3] << endl;
+            }
             break;
         case 1: // y
             try {
@@ -223,7 +233,13 @@ int Menu::sampleData(int& selected, double& x, double& y, double& z, int& xEnter
             }
 
             system("cls");
-            // p.orientation(xEntered, yEntered, zEntered, x, y, z);
+            if (xEntered == 1 && yEntered == 1 && zEntered == 1) {
+                vector<double> testPoint = { x, y, z };
+                vector<double> result = data.performClassification(testPoint, trainingData);
+
+                m.setCursorPosition(0, 8);
+                cout << "Predicted label: " << result[3] << endl;
+            }
             break;
         case 2: // z
             try {
@@ -242,7 +258,13 @@ int Menu::sampleData(int& selected, double& x, double& y, double& z, int& xEnter
             }
 
             system("cls");
-            // p.orientation(xEntered, yEntered, zEntered, x, y, z);
+            if (xEntered == 1 && yEntered == 1 && zEntered == 1) {
+                vector<double> testPoint = { x, y, z };
+                vector<double> result = data.performClassification(testPoint, trainingData);
+
+                m.setCursorPosition(0, 8);
+                cout << "Predicted label: " << result[3] << endl;
+            }
             break;
         }
     }
