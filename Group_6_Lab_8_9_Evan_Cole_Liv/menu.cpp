@@ -3,6 +3,7 @@
 #include "NN_Classifier.h"
 #include "Another_Classifier.h"
 #include "Exception_SampleInput.h"
+#include <cctype>
 
 using namespace std;
 
@@ -84,6 +85,8 @@ int Menu::NNMenu(int& selected) {
     setCursorPosition(0, 0);  // redraws the console screen (Windows)
     int back = 0;
 
+    vector<vector<double>> results; // to be saved to file
+
     cout << "[NN Classifier selected]" << endl;
     cout << "Choose option: \n" << endl;
 
@@ -102,8 +105,8 @@ int Menu::NNMenu(int& selected) {
             selected++;
     }
 
-    else if (ch == 13) {                     
-        setCursorPosition(0, 6); 
+    else if (ch == 13) {
+        setCursorPosition(0, 6);
 
         switch (selected) {
         case 0: // enter sample data (x,y,z) option
@@ -119,25 +122,31 @@ int Menu::NNMenu(int& selected) {
             }
             system("cls");
         }
-            break;
+        break;
         case 1: // enter a data file option
+            NNClassifer data;
+            ReadWriteFile rwf;
+
             string testFile;
             string trainingFile = "trainingData.txt";
-            hideCursor(1); 
+            hideCursor(1);
 
-            while (!back) { //TODO: make a new back function
-                cout << "\nEnter txt file name here (Include .txt): ";
+            while (1) { //TODO: make a new back function
+                cout << "\nEnter file name here (or enter 'back' to select again): ";
                 cin >> testFile;
 
-                NNClassifer data;
-                ReadWriteFile rwf;
+                if (testFile == "back") {
+                    system("cls");
+                    break;
+                }
 
                 vector<vector<double>> trainingData = rwf.createCoordinateGroups(trainingFile);
                 vector<vector<double>> testData = rwf.createCoordinateGroups(testFile);
-               
+
                 for (int i = 0; i < testData.size(); i++) {
                     vector<double> testPoint = testData[i];
                     vector<double> result = data.performClassification(testPoint, trainingData);
+                    results.push_back(result); // push each result to the "results" vector group
 
                     cout << "Calculating line " << setw(3) << i + 1 << ": ( "  // this block is just to make it so the prints will all be aligned (improves readability up to the hundreds)
                         << fixed << setprecision(5)                           // set the number of decimal places we will print to
@@ -146,13 +155,20 @@ int Menu::NNMenu(int& selected) {
                         << setw(8) << result[2] << " )    "
                         << "Predicted Label: " << (int)result[3] << "\n";
                 }
+
+                if (rwf.saveResultsToFile(results)) { // save these results to a file, if this passes then print a message
+                    cout << "=====+===== =======+===== =====+======+=====+===== =====+======= =====+=====" << endl;
+                    cout << "=====+===== This information has been save to file (results.txt) =====+=====" << endl;
+                    cout << "=====+===== =======+===== =====+======+=====+===== =====+======= =====+=====" << endl;
+                }
             }
+
             break;
         }
     }
 
-    else if (ch == 27) {     // escape key here if we ever need to go back
-           return 1;       // return a special value to indicate "back"
+    else if (ch == 27) { // escape key here if we ever need to go back
+           return 1;    // return a special value to indicate "back"
     }
 
     return 0;

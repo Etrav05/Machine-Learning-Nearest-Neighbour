@@ -1,10 +1,11 @@
 #pragma once
 #include "DataPersistance.h"
-#include "Linked_List.h"
 #include "Position.h"
 #include <string>
 #include <vector>
 #include <fstream>
+#include <windows.h>
+#include <iomanip>
 
 using namespace std;
 
@@ -15,6 +16,6 @@ public:
 
 	vector<vector<double>> createCoordinateGroups(string& filename); // create a vector which contatains the coordinates + label as individual groupings
 
-	bool saveResultsToFile(PLINENODE head);
+	bool saveResultsToFile(vector<vector<double>>& results);
 
 };

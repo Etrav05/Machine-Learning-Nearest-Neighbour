@@ -26,6 +26,8 @@ void acceptSampleData(double& i) {
 
 void handleInput(double& xyz, int& xyzEntered, double& x, double& y, double& z, int xEntered, int yEntered, int zEntered, NNClassifer& data, vector<vector<double>>& trainingData, Menu& m) {
    
+    string labels[6] = { "Face up", "Face down", "Portrait", "Portrait upside down", "Landscape left", "Landscape right" };
+
     try {
         acceptSampleData(xyz);
         xyzEntered = 1;
@@ -41,12 +43,13 @@ void handleInput(double& xyz, int& xyzEntered, double& x, double& y, double& z, 
 
     system("cls");
 
-    if (xEntered == 1 && yEntered == 1 && zEntered == 1) {
+    if (xEntered + yEntered + zEntered >= 2) {
         vector<double> testPoint = { x, y, z };
         vector<double> result = data.performClassification(testPoint, trainingData);
 
+        int i = result[3];
+
         m.setCursorPosition(0, 8);
-        cout << result[0] << ", " << result[1] << ", " << result[2] << ", " << endl;
-        cout << "Predicted label: " << result[3] << endl;
+        cout << "Predicted label: " << labels[i - 1] << endl;
     }
 }

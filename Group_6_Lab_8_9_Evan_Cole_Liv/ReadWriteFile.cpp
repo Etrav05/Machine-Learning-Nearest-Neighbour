@@ -28,44 +28,34 @@ vector<vector<double>> ReadWriteFile::createCoordinateGroups(string& filename) {
 	return group;
 }
 
-// TODO: update to match above
-bool ReadWriteFile::saveResultsToFile(PLINENODE head) {
-	string filename = "results.txt";
-	PLINENODE temp = NULL;
+bool ReadWriteFile::saveResultsToFile(vector<vector<double>>& results) {
+    string labels[6] = { "Face up", "Face down", "Portrait", "Portrait upside down", "Landscape left", "Landscape right" };
+    string filename = "results.txt";
+    ofstream fout(filename);
 
-	ofstream fout;
+    if (!fout.is_open()) {
+        cout << "Data could not be saved - results.txt could not be opened" << endl;
+        Sleep(1000);
+        return false;
+    }
 
-	fout.open(filename);
+    for (vector<double>& row : results) {
+        for (size_t i = 0; i < row.size(); ++i) {
+            fout << row[i];
+            if (i < row.size() - 1)
+                fout << ",";
+        }
 
-	if (fout.is_open()) {
-		while (head != NULL) {                        // until all line nodes printed
-			fout << head->data.x << ","             // print each feature to file
-				<< head->data.y << ","
-				<< head->data.z << ","
-				<< head->data.label << ","
-				<< head->data.labelName << endl; // print in desired format
-			temp = head;                        // temp is line
-			head = head->next;                 // move line to the next line
-			delete temp;                       // free memory as we go
-		}
+        int i = (row[3]) - 1; // add the labels name
+        if (i >= 0 && i < 6)
+            fout << "," << labels[i];
+        else
+            fout << ", Not known";
 
-		fout.close();
-	}
+        fout << endl;
+    }
 
-	else {
-		cout << "results.txt could not be opened" << endl;
-		Sleep(1000);
-		return false;
-	}
-
-	return true;
+    fout.close();
+    return true;
 }
 
-
-/*
- if (rwf.saveResultsToFile(head)) { // save these results to a file, if this passes then print a message
-		cout << "=====+===== =======+===== =====+======+=====+===== =====+======= =====+=====" << endl;
-		cout << "=====+===== This information has been save to file (results.txt) =====+=====" << endl;
-		cout << "=====+===== =======+===== =====+======+=====+===== =====+======= =====+=====" << endl;
-	}
-*/

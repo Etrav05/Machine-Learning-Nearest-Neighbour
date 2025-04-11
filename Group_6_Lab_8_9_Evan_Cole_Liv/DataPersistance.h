@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "Linked_List.h"
 
 using namespace std;
 
@@ -12,5 +11,5 @@ public:
 
 	virtual vector<vector<double>> createCoordinateGroups(string& filename) = 0; // create a vector which contatains the coordinates + label as individual groupings
 
-	virtual bool saveResultsToFile(PLINENODE head) = 0;
+	virtual bool saveResultsToFile(vector<vector<double>>& results) = 0;
 };
