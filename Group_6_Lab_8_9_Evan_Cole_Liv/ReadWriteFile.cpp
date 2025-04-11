@@ -60,3 +60,12 @@ bool ReadWriteFile::saveResultsToFile(PLINENODE head) {
 
 	return true;
 }
+
+
+/*
+ if (rwf.saveResultsToFile(head)) { // save these results to a file, if this passes then print a message
+		cout << "=====+===== =======+===== =====+======+=====+===== =====+======= =====+=====" << endl;
+		cout << "=====+===== This information has been save to file (results.txt) =====+=====" << endl;
+		cout << "=====+===== =======+===== =====+======+=====+===== =====+======= =====+=====" << endl;
+	}
+*/

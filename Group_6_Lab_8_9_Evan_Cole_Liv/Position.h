@@ -10,5 +10,4 @@ public:
 
 	double calculateDistance(vector<double>& trn, vector<double>& tst); // calculate between given point and another point
 
-	// void orientation(int xEntered, int yEntered, int zEntered, double x, double y, double z);
 };

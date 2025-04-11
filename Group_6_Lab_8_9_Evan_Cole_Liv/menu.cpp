@@ -192,84 +192,18 @@ int Menu::sampleData(int& selected, double& x, double& y, double& z, int& xEnter
 
         switch (selected) {
         case 0: // x          
-            try {
-                acceptSampleData(x);
-                xEntered = 1;
-            }
-
-            catch (Character_Detected cd) {
-                cout << cd.what() << endl;
-                Sleep(1500);
-            }
-
-            catch (Greater_Or_Less_Than_Range glr) {
-                cout << glr.what() << endl;
-                Sleep(1500);
-            }
-
-            system("cls");
-            if (xEntered == 1 && yEntered == 1 && zEntered == 1) {
-                vector<double> testPoint = { x, y, z };
-                vector<double> result = data.performClassification(testPoint, trainingData);
-
-                m.setCursorPosition(0, 8);
-                cout << "Predicted label: " << result[3] << endl;
-            }
+            handleInput(x, xEntered, x, y, z, xEntered, yEntered, zEntered, data, trainingData, m);
             break;
         case 1: // y
-            try {
-                acceptSampleData(y);
-                yEntered = 1;
-            }
-
-            catch (Character_Detected cd) {
-                cout << cd.what() << endl;
-                Sleep(1500);
-            }
-
-            catch (Greater_Or_Less_Than_Range glr) {
-                cout << glr.what() << endl;
-                Sleep(1500);
-            }
-
-            system("cls");
-            if (xEntered == 1 && yEntered == 1 && zEntered == 1) {
-                vector<double> testPoint = { x, y, z };
-                vector<double> result = data.performClassification(testPoint, trainingData);
-
-                m.setCursorPosition(0, 8);
-                cout << "Predicted label: " << result[3] << endl;
-            }
+            handleInput(y, yEntered, x, y, z, xEntered, yEntered, zEntered, data, trainingData, m);
             break;
         case 2: // z
-            try {
-                acceptSampleData(z);
-                zEntered = 1;
-            }
-
-            catch (Character_Detected cd) {
-                cout << cd.what() << endl;
-                Sleep(1500);
-            }
-
-            catch (Greater_Or_Less_Than_Range glr) {
-                cout << glr.what() << endl;
-                Sleep(1500);
-            }
-
-            system("cls");
-            if (xEntered == 1 && yEntered == 1 && zEntered == 1) {
-                vector<double> testPoint = { x, y, z };
-                vector<double> result = data.performClassification(testPoint, trainingData);
-
-                m.setCursorPosition(0, 8);
-                cout << "Predicted label: " << result[3] << endl;
-            }
+            handleInput(z, zEntered, x, y, z, xEntered, yEntered, zEntered, data, trainingData, m);
             break;
         }
     }
 
-    else if (ch == 27) {
+    else if (ch == 27) { // esc key
         return 1;
     }
 

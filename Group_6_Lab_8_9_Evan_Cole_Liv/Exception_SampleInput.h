@@ -2,6 +2,9 @@
 #include <iostream>
 #include <windows.h>
 #include <string>
+#include <vector>
+#include "NN_Classifier.h"
+#include "menu.h"
 
 using namespace std;
 
@@ -22,3 +25,5 @@ public:
 };
 
 void acceptSampleData(double& i);
+
+void handleInput(double& xyz, int& xyzEntered, double& x, double& y, double& z, int xEntered, int yEntered, int zEntered, NNClassifer& data, vector<vector<double>>& trainingData, Menu& m);

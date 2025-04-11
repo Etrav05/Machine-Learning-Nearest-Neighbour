@@ -8,20 +8,3 @@ double Position::calculateDistance(vector<double>& trn, vector<double>& tst) { /
 
 	return distance;
 }
-
-// TODO:
-/*
-void Position::orientation(int xEntered, int yEntered, int zEntered, double x, double y, double z) {
-    Menu m;
-    NNClassifer sample;
-    m.setCursorPosition(0, 8);
-
-    if (xEntered == 1 && yEntered == 1 && zEntered == 1) {
-        sample.performClassification(x, y, z);
-    }
-    else {
-        cout << "Please enter value(s) for: " << (xEntered == 0 ? "x " : " ") << (yEntered == 0 ? "y " : " ") << (zEntered == 0 ? "z " : " ") << endl;
-    }
-    m.setCursorPosition(0, 0);
-}
-*/
