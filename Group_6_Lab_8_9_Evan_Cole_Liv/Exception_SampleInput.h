@@ -41,5 +41,4 @@ public:
 	const char* what() const {
 		return "== Input can only be between -1 & 1 ==";
 	}
-
 };

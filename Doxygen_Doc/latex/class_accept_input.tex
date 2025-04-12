@@ -1,0 +1,91 @@
+\doxysection{Accept\+Input Class Reference}
+\hypertarget{class_accept_input}{}\label{class_accept_input}\index{AcceptInput@{AcceptInput}}
+
+
+Class for acceptance of user input functions.  
+
+
+
+
+{\ttfamily \#include $<$Accept\+Input.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_accept_input_a50e1fa9b452ceade5afd86f4354ac849}{accept\+Sample\+Data}} (double \&i)
+\begin{DoxyCompactList}\small\item\em Function to accept the users input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_accept_input_a9dca2cbf7a1217f08aea13762ce9bb22}{handle\+Input}} (double \&xyz, int \&xyz\+Entered, double \&x, double \&y, double \&z, int x\+Entered, int y\+Entered, int z\+Entered, \mbox{\hyperlink{class_n_n_classifer}{NNClassifer}} \&data, vector$<$ vector$<$ double $>$ $>$ \&training\+Data, \mbox{\hyperlink{class_menu}{Menu}} \&m)
+\begin{DoxyCompactList}\small\item\em Function to handle the users 3 coordinate entries and produce a classification. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_accept_input_a9ab5df8f6e5f9bf857733dce817ce8dc}{sample\+Data}} (int \&selected, double \&x, double \&y, double \&z, int \&x\+Entered, int \&y\+Entered, int \&z\+Entered)
+\begin{DoxyCompactList}\small\item\em Function to display and allow selection of the 3 cooridinate entries. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for acceptance of user input functions. 
+
+Defines the behaviours of acceptance of user input functions \begin{DoxyAuthor}{Author}
+Evan, Cole, Liv @data 12/04/2025 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_accept_input_a50e1fa9b452ceade5afd86f4354ac849}\index{AcceptInput@{AcceptInput}!acceptSampleData@{acceptSampleData}}
+\index{acceptSampleData@{acceptSampleData}!AcceptInput@{AcceptInput}}
+\doxysubsubsection{\texorpdfstring{acceptSampleData()}{acceptSampleData()}}
+{\footnotesize\ttfamily \label{class_accept_input_a50e1fa9b452ceade5afd86f4354ac849} 
+void Accept\+Input\+::accept\+Sample\+Data (\begin{DoxyParamCaption}\item[{double \&}]{i}{}\end{DoxyParamCaption})}
+
+
+
+Function to accept the users input. 
+
+This function accepts users inputs and converts them to string to check for invalid entries, those execptions being most characters or outside the range of coordinate entries (-\/1 \texorpdfstring{$>$}{>}= 1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em This} & function accepts user inputted value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_accept_input_a9dca2cbf7a1217f08aea13762ce9bb22}\index{AcceptInput@{AcceptInput}!handleInput@{handleInput}}
+\index{handleInput@{handleInput}!AcceptInput@{AcceptInput}}
+\doxysubsubsection{\texorpdfstring{handleInput()}{handleInput()}}
+{\footnotesize\ttfamily \label{class_accept_input_a9dca2cbf7a1217f08aea13762ce9bb22} 
+void Accept\+Input\+::handle\+Input (\begin{DoxyParamCaption}\item[{double \&}]{xyz}{, }\item[{int \&}]{xyz\+Entered}{, }\item[{double \&}]{x}{, }\item[{double \&}]{y}{, }\item[{double \&}]{z}{, }\item[{int}]{x\+Entered}{, }\item[{int}]{y\+Entered}{, }\item[{int}]{z\+Entered}{, }\item[{\mbox{\hyperlink{class_n_n_classifer}{NNClassifer}} \&}]{data}{, }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{training\+Data}{, }\item[{\mbox{\hyperlink{class_menu}{Menu}} \&}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Function to handle the users 3 coordinate entries and produce a classification. 
+
+This function constantly handles the 3 coordinates the user can input and produces a classification as well as message which states the phones orientation
+
+
+\begin{DoxyParams}{Parameters}
+{\em This} & function accepts the entered value, its state, all other entered values, their states, the training data, the testing data, and the menu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_accept_input_a9ab5df8f6e5f9bf857733dce817ce8dc}\index{AcceptInput@{AcceptInput}!sampleData@{sampleData}}
+\index{sampleData@{sampleData}!AcceptInput@{AcceptInput}}
+\doxysubsubsection{\texorpdfstring{sampleData()}{sampleData()}}
+{\footnotesize\ttfamily \label{class_accept_input_a9ab5df8f6e5f9bf857733dce817ce8dc} 
+int Accept\+Input\+::sample\+Data (\begin{DoxyParamCaption}\item[{int \&}]{selected}{, }\item[{double \&}]{x}{, }\item[{double \&}]{y}{, }\item[{double \&}]{z}{, }\item[{int \&}]{x\+Entered}{, }\item[{int \&}]{y\+Entered}{, }\item[{int \&}]{z\+Entered}{}\end{DoxyParamCaption})}
+
+
+
+Function to display and allow selection of the 3 cooridinate entries. 
+
+This function provides the user with the options of the 3 coordinates and allows constant entry of their values
+
+
+\begin{DoxyParams}{Parameters}
+{\em This} & function accepts the selected state, the user inputted values, and their states \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns weather to continue or exit back to the previous menu 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/source/repos/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\mbox{\hyperlink{_accept_input_8h}{Accept\+Input.\+h}}\item 
+C\+:/\+Users/\+User/source/repos/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/Accept\+Input.\+cpp\end{DoxyCompactItemize}

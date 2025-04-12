@@ -1,0 +1,27 @@
+\doxysection{Read\+Write\+File.\+h}
+\hypertarget{_read_write_file_8h_source}{}\label{_read_write_file_8h_source}\index{C:/Users/User/source/repos/Group\_6\_Lab\_8\_9\_Evan\_Cole\_Liv/Group\_6\_Lab\_8\_9\_Evan\_Cole\_Liv/ReadWriteFile.h@{C:/Users/User/source/repos/Group\_6\_Lab\_8\_9\_Evan\_Cole\_Liv/Group\_6\_Lab\_8\_9\_Evan\_Cole\_Liv/ReadWriteFile.h}}
+\mbox{\hyperlink{_read_write_file_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_data_persistance_8h}{DataPersistance.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_position_8h}{Position.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_read_write_file}{ReadWriteFile}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_data_persistance}{DataPersistance}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00032\ \ \ \ \ vector<double>\ \mbox{\hyperlink{class_read_write_file_a698c62e57d495a0fbf2ad4d976fc5b35}{getParsedData}}(\textcolor{keywordtype}{string}\&\ line);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \ \ \ \ vector<vector<double>>\ \mbox{\hyperlink{class_read_write_file_a6707ed89f3149fee61cda7d2384b8e64}{createCoordinateGroups}}(\textcolor{keywordtype}{string}\&\ filename);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_read_write_file_a21490cd99e5b6db7c2193253382467b4}{saveResultsToFile}}(vector<vector<double>>\&\ results);}
+\DoxyCodeLine{00050\ \};}
+
+\end{DoxyCode}

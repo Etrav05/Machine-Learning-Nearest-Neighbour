@@ -1,0 +1,95 @@
+\doxysection{NNClassifer Class Reference}
+\hypertarget{class_n_n_classifer}{}\label{class_n_n_classifer}\index{NNClassifer@{NNClassifer}}
+
+
+Class for NNClassifier functions.  
+
+
+
+
+{\ttfamily \#include $<$NN\+\_\+\+Classifier.\+h$>$}
+
+
+
+Inheritance diagram for NNClassifer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{class_n_n_classifer__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_n_n_classifer_a8f767d5aeed392ae1e4054d210370392}{training}} (vector$<$ vector$<$ double $>$ $>$ \&data)
+\begin{DoxyCompactList}\small\item\em Function to store parsed training data to the objects training\+Data member. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \mbox{\hyperlink{class_n_n_classifer_ae5b7a2dc20c17e7052d7347a08596ede}{perform\+Classification}} (vector$<$ double $>$ \&test\+Point)
+\begin{DoxyCompactList}\small\item\em Function to perform lable classification based on a passed point and against parsed training data in the training\+Data member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_classifier}{Classifier}}}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ vector$<$ double $>$ $>$ {\bfseries training\+Data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for NNClassifier functions. 
+
+Defines the behaviours of NNClassifier functions \begin{DoxyAuthor}{Author}
+Evan, Cole, Liv @data 12/04/2025 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_n_n_classifer_ae5b7a2dc20c17e7052d7347a08596ede}\index{NNClassifer@{NNClassifer}!performClassification@{performClassification}}
+\index{performClassification@{performClassification}!NNClassifer@{NNClassifer}}
+\doxysubsubsection{\texorpdfstring{performClassification()}{performClassification()}}
+{\footnotesize\ttfamily \label{class_n_n_classifer_ae5b7a2dc20c17e7052d7347a08596ede} 
+vector$<$ double $>$ NNClassifer\+::perform\+Classification (\begin{DoxyParamCaption}\item[{vector$<$ double $>$ \&}]{test\+Point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function to perform lable classification based on a passed point and against parsed training data in the training\+Data member. 
+
+This function creates a result vector group which contatins the test points coordinates and the nearest training data coordinate\textquotesingle{}s label (Neareast Neighbour)
+
+
+\begin{DoxyParams}{Parameters}
+{\em This} & function accepts a testing point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the classification as a vector group 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_classifier_abba1a70f7670b16b109235509c057b54}{Classifier}}.
+
+\Hypertarget{class_n_n_classifer_a8f767d5aeed392ae1e4054d210370392}\index{NNClassifer@{NNClassifer}!training@{training}}
+\index{training@{training}!NNClassifer@{NNClassifer}}
+\doxysubsubsection{\texorpdfstring{training()}{training()}}
+{\footnotesize\ttfamily \label{class_n_n_classifer_a8f767d5aeed392ae1e4054d210370392} 
+void NNClassifer\+::training (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function to store parsed training data to the objects training\+Data member. 
+
+This function set this objects trainging\+Data to be equal to the passed vector group
+
+
+\begin{DoxyParams}{Parameters}
+{\em This} & function accepts the pasred grouping of training data \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_classifier_a0817539458e75a0352bf41210c2268d4}{Classifier}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/source/repos/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\mbox{\hyperlink{_n_n___classifier_8h}{NN\+\_\+\+Classifier.\+h}}\item 
+C\+:/\+Users/\+User/source/repos/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/NN\+\_\+\+Classifier.\+cpp\end{DoxyCompactItemize}

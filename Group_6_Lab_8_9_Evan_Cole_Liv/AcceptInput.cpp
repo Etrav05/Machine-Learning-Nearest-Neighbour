@@ -24,7 +24,7 @@ void AcceptInput::acceptSampleData(double& i) {
     }
 }
 
-void AcceptInput::handleInput(double& xyz, int& xyzEntered, double& x, double& y, double& z, int xEntered, int yEntered, int zEntered, NNClassifer& data, vector<vector<double>>& trainingData, Menu& m) {
+void AcceptInput::handleInput(double& xyz, int& xyzEntered, double& x, double& y, double& z, int xEntered, int yEntered, int zEntered, NNClassifier& data, vector<vector<double>>& trainingData, Menu& m) {
     AcceptInput accept;
     string labels[6] = { "Face up", "Face down", "Portrait", "Portrait upside down", "Landscape left", "Landscape right" }; // create the corsponding label names
 
@@ -59,7 +59,7 @@ void AcceptInput::handleInput(double& xyz, int& xyzEntered, double& x, double& y
 
 int AcceptInput::sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered) { // output will be orientation 
     Menu m;            // initialize all objects used
-    NNClassifer data;
+    NNClassifier data;
     ReadWriteFile rwf;
     AcceptInput accept;
 

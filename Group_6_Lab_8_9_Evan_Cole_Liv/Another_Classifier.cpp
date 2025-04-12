@@ -1,18 +1,18 @@
 #include "Another_Classifier.h"
 
-void AnotherClassifer::notImplemented() {
+void AnotherClassifier::notImplemented() {
 
 	cout << "  == Another Classifier is not implemented yet ==    " << endl;
 
 }
 
-void AnotherClassifer::training(vector<vector<double>>& data) {
+void AnotherClassifier::training(vector<vector<double>>& data) {
 
 	cout << "  == Another Classifier is not implemented yet ==    " << endl; // print message
 
 }
 
-vector<double> AnotherClassifer::performClassification(vector<double>& testPoint) {
+vector<double> AnotherClassifier::performClassification(vector<double>& testPoint) {
 
 	cout << "  == Another Classifier is not implemented yet ==    " << endl; // print message
 

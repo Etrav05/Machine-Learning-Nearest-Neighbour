@@ -11,11 +11,11 @@
  x = landscape right
 */
 
-void NNClassifer::training(vector<vector<double>>& data) { // assign the vector parameter to the attribute
+void NNClassifier::training(vector<vector<double>>& data) { // assign the vector parameter to the attribute
     this->trainingData = data; 
 }
 
-vector<double> NNClassifer::performClassification(vector<double>& testPoint) {
+vector<double> NNClassifier::performClassification(vector<double>& testPoint) {
     vector<double> result(4); // result vector
     Position p;
 

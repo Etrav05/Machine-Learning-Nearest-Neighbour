@@ -68,7 +68,7 @@ int Menu::mainMenu(int& selected) {
                 } 
                 break;
             case 2:
-                { AnotherClassifer notAvailableAgain; 
+                { AnotherClassifier notAvailableAgain; 
                   notAvailableAgain.notImplemented();
                 }
                 break;
@@ -126,7 +126,7 @@ int Menu::NNMenu(int& selected) {
         }
         break;
         case 1: // enter a data file option
-            NNClassifer data;
+            NNClassifier data;
             ReadWriteFile rwf;
 
             string testFile;

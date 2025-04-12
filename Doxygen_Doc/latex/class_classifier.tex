@@ -1,0 +1,94 @@
+\doxysection{Classifier Class Reference}
+\hypertarget{class_classifier}{}\label{class_classifier}\index{Classifier@{Classifier}}
+
+
+Base class for \doxylink{class_classifier}{Classifier} functions.  
+
+
+
+
+{\ttfamily \#include $<$Classifier.\+h$>$}
+
+
+
+Inheritance diagram for Classifier\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_classifier__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_classifier_a0817539458e75a0352bf41210c2268d4}{training}} (vector$<$ vector$<$ double $>$ $>$ \&data)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to store parsed training data to the objects training\+Data member. \end{DoxyCompactList}\item 
+virtual vector$<$ double $>$ \mbox{\hyperlink{class_classifier_abba1a70f7670b16b109235509c057b54}{perform\+Classification}} (vector$<$ double $>$ \&test\+Point)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to perform label classification based on a passed point and against parsed training data in the training\+Data member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_classifier_ada03bf10dae1e695f3efbd9e88c9d95f}\label{class_classifier_ada03bf10dae1e695f3efbd9e88c9d95f} 
+vector$<$ vector$<$ double $>$ $>$ {\bfseries training\+Data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for \doxylink{class_classifier}{Classifier} functions. 
+
+Defines the base behaviours of \doxylink{class_classifier}{Classifier} functions \begin{DoxyAuthor}{Author}
+Evan, Cole, Liv @data 12/04/2025 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_classifier_abba1a70f7670b16b109235509c057b54}\index{Classifier@{Classifier}!performClassification@{performClassification}}
+\index{performClassification@{performClassification}!Classifier@{Classifier}}
+\doxysubsubsection{\texorpdfstring{performClassification()}{performClassification()}}
+{\footnotesize\ttfamily \label{class_classifier_abba1a70f7670b16b109235509c057b54} 
+virtual vector$<$ double $>$ Classifier\+::perform\+Classification (\begin{DoxyParamCaption}\item[{vector$<$ double $>$ \&}]{test\+Point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to perform label classification based on a passed point and against parsed training data in the training\+Data member. 
+
+This function is purely virtual and is to be defined by derived classes
+
+
+\begin{DoxyParams}{Parameters}
+{\em This} & function accepts a testing point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns nothing as it is an virtual function 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_another_classifer_afffc426073f01e6f5231d4981c59e846}{Another\+Classifer}}, \mbox{\hyperlink{class_k_n_n_classifier_a140b06930c0ecbbb3781dd1a63ba0424}{KNNClassifier}}, and \mbox{\hyperlink{class_n_n_classifer_ae5b7a2dc20c17e7052d7347a08596ede}{NNClassifer}}.
+
+\Hypertarget{class_classifier_a0817539458e75a0352bf41210c2268d4}\index{Classifier@{Classifier}!training@{training}}
+\index{training@{training}!Classifier@{Classifier}}
+\doxysubsubsection{\texorpdfstring{training()}{training()}}
+{\footnotesize\ttfamily \label{class_classifier_a0817539458e75a0352bf41210c2268d4} 
+virtual void Classifier\+::training (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to store parsed training data to the objects training\+Data member. 
+
+This function is purely virtual and is to be defined by derived classes
+
+
+\begin{DoxyParams}{Parameters}
+{\em This} & function accepts the pasred grouping of training data \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_another_classifer_af08ee4f9d75df28399167f8eb919fcbc}{Another\+Classifer}}, \mbox{\hyperlink{class_k_n_n_classifier_a5cd80e0d423ce4b52b7da3acf18d2a66}{KNNClassifier}}, and \mbox{\hyperlink{class_n_n_classifer_a8f767d5aeed392ae1e4054d210370392}{NNClassifer}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/source/repos/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\mbox{\hyperlink{_classifier_8h}{Classifier.\+h}}\end{DoxyCompactItemize}

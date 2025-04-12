@@ -1,0 +1,118 @@
+\doxysection{Read\+Write\+File Class Reference}
+\hypertarget{class_read_write_file}{}\label{class_read_write_file}\index{ReadWriteFile@{ReadWriteFile}}
+
+
+Class for all file stream functions.  
+
+
+
+
+{\ttfamily \#include $<$Read\+Write\+File.\+h$>$}
+
+
+
+Inheritance diagram for Read\+Write\+File\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{class_read_write_file__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ double $>$ \mbox{\hyperlink{class_read_write_file_a698c62e57d495a0fbf2ad4d976fc5b35}{get\+Parsed\+Data}} (string \&line)
+\begin{DoxyCompactList}\small\item\em Function to get parsed training data from a line in a file. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ double $>$ $>$ \mbox{\hyperlink{class_read_write_file_a6707ed89f3149fee61cda7d2384b8e64}{create\+Coordinate\+Groups}} (string \&filename)
+\begin{DoxyCompactList}\small\item\em Function to get store each parsed training data line vector group to a larger vector group of vector groups. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_read_write_file_a21490cd99e5b6db7c2193253382467b4}{save\+Results\+To\+File}} (vector$<$ vector$<$ double $>$ $>$ \&results)
+\begin{DoxyCompactList}\small\item\em Function to get store the vector group of vectors created by the "{}create\+Coordinate\+Groups"{} function to a file named "{}results.\+txt"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for all file stream functions. 
+
+Defines the behaviours of file stream functions \begin{DoxyAuthor}{Author}
+Evan, Cole, Liv @data 12/04/2025 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_read_write_file_a6707ed89f3149fee61cda7d2384b8e64}\index{ReadWriteFile@{ReadWriteFile}!createCoordinateGroups@{createCoordinateGroups}}
+\index{createCoordinateGroups@{createCoordinateGroups}!ReadWriteFile@{ReadWriteFile}}
+\doxysubsubsection{\texorpdfstring{createCoordinateGroups()}{createCoordinateGroups()}}
+{\footnotesize\ttfamily \label{class_read_write_file_a6707ed89f3149fee61cda7d2384b8e64} 
+vector$<$ vector$<$ double $>$ $>$ Read\+Write\+File\+::create\+Coordinate\+Groups (\begin{DoxyParamCaption}\item[{string \&}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function to get store each parsed training data line vector group to a larger vector group of vector groups. 
+
+This function is opens a file and calls the "{}get\+Parsed\+Data"{} function on each of its lines, saving the "{}get\+Parsed\+Data"{} vector groups to a larger vector group made of vector groups
+
+
+\begin{DoxyParams}{Parameters}
+{\em accepts} & a file name string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the lines contents as a group within a larger vector group 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_data_persistance_a785bbc0a868d03d6bdf9796c5984f85c}{Data\+Persistance}}.
+
+\Hypertarget{class_read_write_file_a698c62e57d495a0fbf2ad4d976fc5b35}\index{ReadWriteFile@{ReadWriteFile}!getParsedData@{getParsedData}}
+\index{getParsedData@{getParsedData}!ReadWriteFile@{ReadWriteFile}}
+\doxysubsubsection{\texorpdfstring{getParsedData()}{getParsedData()}}
+{\footnotesize\ttfamily \label{class_read_write_file_a698c62e57d495a0fbf2ad4d976fc5b35} 
+vector$<$ double $>$ Read\+Write\+File\+::get\+Parsed\+Data (\begin{DoxyParamCaption}\item[{string \&}]{line}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function to get parsed training data from a line in a file. 
+
+This function is used to parse each data point of a file line, pushing the value which is before/after commas to a vector group
+
+
+\begin{DoxyParams}{Parameters}
+{\em accepts} & a line from a file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the lines contents as a vector group 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_data_persistance_a75aba09ecf576a38c66dff0e83804626}{Data\+Persistance}}.
+
+\Hypertarget{class_read_write_file_a21490cd99e5b6db7c2193253382467b4}\index{ReadWriteFile@{ReadWriteFile}!saveResultsToFile@{saveResultsToFile}}
+\index{saveResultsToFile@{saveResultsToFile}!ReadWriteFile@{ReadWriteFile}}
+\doxysubsubsection{\texorpdfstring{saveResultsToFile()}{saveResultsToFile()}}
+{\footnotesize\ttfamily \label{class_read_write_file_a21490cd99e5b6db7c2193253382467b4} 
+bool Read\+Write\+File\+::save\+Results\+To\+File (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{results}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function to get store the vector group of vectors created by the "{}create\+Coordinate\+Groups"{} function to a file named "{}results.\+txt"{}. 
+
+This function creates a results file and reads through a vector grouping created by the "{}create\+Coordinate\+Groups"{} function, while reading, it saves the testing cooridinates to file, then the training label, and lastly, based on this training label, a specific label name. This repeats for each grouping in the passed vector group
+
+
+\begin{DoxyParams}{Parameters}
+{\em accepts} & the created vector group of cooridinates which have been classified \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the results were saved properly, false if not 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_data_persistance_a755a48561705b538b40c3170974c8169}{Data\+Persistance}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/source/repos/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\mbox{\hyperlink{_read_write_file_8h}{Read\+Write\+File.\+h}}\item 
+C\+:/\+Users/\+User/source/repos/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/Read\+Write\+File.\+cpp\end{DoxyCompactItemize}

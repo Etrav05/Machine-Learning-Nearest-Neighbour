@@ -1,0 +1,22 @@
+\doxysection{Data\+Persistance.\+h}
+\hypertarget{_data_persistance_8h_source}{}\label{_data_persistance_8h_source}\index{C:/Users/User/source/repos/Group\_6\_Lab\_8\_9\_Evan\_Cole\_Liv/Group\_6\_Lab\_8\_9\_Evan\_Cole\_Liv/DataPersistance.h@{C:/Users/User/source/repos/Group\_6\_Lab\_8\_9\_Evan\_Cole\_Liv/Group\_6\_Lab\_8\_9\_Evan\_Cole\_Liv/DataPersistance.h}}
+\mbox{\hyperlink{_data_persistance_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_persistance}{DataPersistance}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{virtual}\ vector<double>\ \mbox{\hyperlink{class_data_persistance_a75aba09ecf576a38c66dff0e83804626}{getParsedData}}(\textcolor{keywordtype}{string}\&\ line)\ =\ 0;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ vector<vector<double>>\ \mbox{\hyperlink{class_data_persistance_a785bbc0a868d03d6bdf9796c5984f85c}{createCoordinateGroups}}(\textcolor{keywordtype}{string}\&\ filename)\ =\ 0;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_data_persistance_a755a48561705b538b40c3170974c8169}{saveResultsToFile}}(vector<vector<double>>\&\ results)\ =\ 0;}
+\DoxyCodeLine{00044\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,117 @@
+\doxysection{Data\+Persistance Class Reference}
+\hypertarget{class_data_persistance}{}\label{class_data_persistance}\index{DataPersistance@{DataPersistance}}
+
+
+Base class for file stream functions.  
+
+
+
+
+{\ttfamily \#include $<$Data\+Persistance.\+h$>$}
+
+
+
+Inheritance diagram for Data\+Persistance\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{class_data_persistance__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual vector$<$ double $>$ \mbox{\hyperlink{class_data_persistance_a75aba09ecf576a38c66dff0e83804626}{get\+Parsed\+Data}} (string \&line)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to get parsed training data from a line in a file. \end{DoxyCompactList}\item 
+virtual vector$<$ vector$<$ double $>$ $>$ \mbox{\hyperlink{class_data_persistance_a785bbc0a868d03d6bdf9796c5984f85c}{create\+Coordinate\+Groups}} (string \&filename)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to get store each parsed training data line vector group to a larger vector group of vector groups. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_data_persistance_a755a48561705b538b40c3170974c8169}{save\+Results\+To\+File}} (vector$<$ vector$<$ double $>$ $>$ \&results)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to get store the vector group of vectors created by the "{}create\+Coordinate\+Groups"{} function to a file named "{}results.\+txt"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for file stream functions. 
+
+Defines the base behaviours of file stream functions \begin{DoxyAuthor}{Author}
+Evan, Cole, Liv @data 12/04/2025 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_data_persistance_a785bbc0a868d03d6bdf9796c5984f85c}\index{DataPersistance@{DataPersistance}!createCoordinateGroups@{createCoordinateGroups}}
+\index{createCoordinateGroups@{createCoordinateGroups}!DataPersistance@{DataPersistance}}
+\doxysubsubsection{\texorpdfstring{createCoordinateGroups()}{createCoordinateGroups()}}
+{\footnotesize\ttfamily \label{class_data_persistance_a785bbc0a868d03d6bdf9796c5984f85c} 
+virtual vector$<$ vector$<$ double $>$ $>$ Data\+Persistance\+::create\+Coordinate\+Groups (\begin{DoxyParamCaption}\item[{string \&}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to get store each parsed training data line vector group to a larger vector group of vector groups. 
+
+This function is purely virtual and is to be defined by derived classes
+
+
+\begin{DoxyParams}{Parameters}
+{\em accepts} & a file name string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns nothing as it is an virtual function 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_read_write_file_a6707ed89f3149fee61cda7d2384b8e64}{Read\+Write\+File}}.
+
+\Hypertarget{class_data_persistance_a75aba09ecf576a38c66dff0e83804626}\index{DataPersistance@{DataPersistance}!getParsedData@{getParsedData}}
+\index{getParsedData@{getParsedData}!DataPersistance@{DataPersistance}}
+\doxysubsubsection{\texorpdfstring{getParsedData()}{getParsedData()}}
+{\footnotesize\ttfamily \label{class_data_persistance_a75aba09ecf576a38c66dff0e83804626} 
+virtual vector$<$ double $>$ Data\+Persistance\+::get\+Parsed\+Data (\begin{DoxyParamCaption}\item[{string \&}]{line}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to get parsed training data from a line in a file. 
+
+This function is purely virtual and is to be defined by derived classes
+
+
+\begin{DoxyParams}{Parameters}
+{\em accepts} & a line from a file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns nothing as it is an virtual function 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_read_write_file_a698c62e57d495a0fbf2ad4d976fc5b35}{Read\+Write\+File}}.
+
+\Hypertarget{class_data_persistance_a755a48561705b538b40c3170974c8169}\index{DataPersistance@{DataPersistance}!saveResultsToFile@{saveResultsToFile}}
+\index{saveResultsToFile@{saveResultsToFile}!DataPersistance@{DataPersistance}}
+\doxysubsubsection{\texorpdfstring{saveResultsToFile()}{saveResultsToFile()}}
+{\footnotesize\ttfamily \label{class_data_persistance_a755a48561705b538b40c3170974c8169} 
+virtual bool Data\+Persistance\+::save\+Results\+To\+File (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{results}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to get store the vector group of vectors created by the "{}create\+Coordinate\+Groups"{} function to a file named "{}results.\+txt"{}. 
+
+This function is purely virtual and is to be defined by derived classes
+
+
+\begin{DoxyParams}{Parameters}
+{\em accepts} & the created vector group of cooridinates which have been classified \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns nothing as it is an virtual function 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_read_write_file_a21490cd99e5b6db7c2193253382467b4}{Read\+Write\+File}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/source/repos/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\mbox{\hyperlink{_data_persistance_8h}{Data\+Persistance.\+h}}\end{DoxyCompactItemize}

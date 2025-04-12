@@ -1,0 +1,113 @@
+\doxysection{Menu Class Reference}
+\hypertarget{class_menu}{}\label{class_menu}\index{Menu@{Menu}}
+
+
+Class for menu functions.  
+
+
+
+
+{\ttfamily \#include $<$menu.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_menu_a15db18e6186af0cd944f9a011b43dc00}{set\+Cursor\+Position}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Windows API function to set a cursor position for printing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_aad4426f6a0f6b0aaebfa3321c02afd07}{hide\+Cursor}} (int state)
+\begin{DoxyCompactList}\small\item\em Windows API function to hide the cursor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_menu_a37ecc75cec441decedb71c3a0a370cde}{main\+Menu}} (int \&selected)
+\begin{DoxyCompactList}\small\item\em Function to display and allow operation of a main menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_menu_abd8b258d816378cbcb9cb069d04e9583}{NNMenu}} (int \&selected)
+\begin{DoxyCompactList}\small\item\em Function to display and allow operation of a NNClassifier menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for menu functions. 
+
+Defines the behaviours of menu functions \begin{DoxyAuthor}{Author}
+Evan, Cole, Liv @data 12/04/2025 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_menu_aad4426f6a0f6b0aaebfa3321c02afd07}\index{Menu@{Menu}!hideCursor@{hideCursor}}
+\index{hideCursor@{hideCursor}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{hideCursor()}{hideCursor()}}
+{\footnotesize\ttfamily \label{class_menu_aad4426f6a0f6b0aaebfa3321c02afd07} 
+void Menu\+::hide\+Cursor (\begin{DoxyParamCaption}\item[{int}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Windows API function to hide the cursor. 
+
+This function sets the cursors visiblity to true or false which prevents the cursor from visibly moving around the screen while redrawing
+
+
+\begin{DoxyParams}{Parameters}
+{\em Accepts} & state, 1 = visible, 0 = hidden \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_menu_a37ecc75cec441decedb71c3a0a370cde}\index{Menu@{Menu}!mainMenu@{mainMenu}}
+\index{mainMenu@{mainMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{mainMenu()}{mainMenu()}}
+{\footnotesize\ttfamily \label{class_menu_a37ecc75cec441decedb71c3a0a370cde} 
+int Menu\+::main\+Menu (\begin{DoxyParamCaption}\item[{int \&}]{selected}{}\end{DoxyParamCaption})}
+
+
+
+Function to display and allow operation of a main menu. 
+
+This function provides the user with the options of classifiers and allows then to select which they wish perform, if an option is selected, it will run that function
+
+
+\begin{DoxyParams}{Parameters}
+{\em Accepts} & the value of selected when the user presses enter on a menu option \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 1 if the user presses escape 
+\end{DoxyReturn}
+\Hypertarget{class_menu_abd8b258d816378cbcb9cb069d04e9583}\index{Menu@{Menu}!NNMenu@{NNMenu}}
+\index{NNMenu@{NNMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{NNMenu()}{NNMenu()}}
+{\footnotesize\ttfamily \label{class_menu_abd8b258d816378cbcb9cb069d04e9583} 
+int Menu\+::\+NNMenu (\begin{DoxyParamCaption}\item[{int \&}]{selected}{}\end{DoxyParamCaption})}
+
+
+
+Function to display and allow operation of a NNClassifier menu. 
+
+This function provides the user with the options of how they wish to use the NNclassifiers and it allows then to select which they want to perform, if an option is selected, it will run that function
+
+
+\begin{DoxyParams}{Parameters}
+{\em Accepts} & the value of selected when the user presses enter on a NNmenu option \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 1 if the user presses escape 
+\end{DoxyReturn}
+\Hypertarget{class_menu_a15db18e6186af0cd944f9a011b43dc00}\index{Menu@{Menu}!setCursorPosition@{setCursorPosition}}
+\index{setCursorPosition@{setCursorPosition}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{setCursorPosition()}{setCursorPosition()}}
+{\footnotesize\ttfamily \label{class_menu_a15db18e6186af0cd944f9a011b43dc00} 
+void Menu\+::set\+Cursor\+Position (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Windows API function to set a cursor position for printing. 
+
+This function sets the cursors position to a specified location and redraws the scene from that location which prevents the terminal from flickering
+
+
+\begin{DoxyParams}{Parameters}
+{\em Accepts} & coordinates on a 2D plane \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/source/repos/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\mbox{\hyperlink{menu_8h}{menu.\+h}}\item 
+C\+:/\+Users/\+User/source/repos/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/\+Group\+\_\+6\+\_\+\+Lab\+\_\+8\+\_\+9\+\_\+\+Evan\+\_\+\+Cole\+\_\+\+Liv/menu.\+cpp\end{DoxyCompactItemize}
