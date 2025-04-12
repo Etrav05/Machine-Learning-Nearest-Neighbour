@@ -3,6 +3,12 @@
 #include "Classifier.h"
 #include "Position.h"
 
+/// @file NN_Classifier.h
+/// 
+/// @brief Header file defining the NNClassifier interface
+/// 
+/// Defines the behaviours of NNClassifier
+
 using namespace std;
 
 class NNClassifer : protected Classifier {

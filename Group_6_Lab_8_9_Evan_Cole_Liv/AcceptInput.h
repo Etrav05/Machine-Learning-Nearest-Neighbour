@@ -22,6 +22,9 @@ public:
 	/// This function constantly handles the 3 coordinates the user can input and produces a classification as well as message which states the phones orientation
 	void handleInput(double& xyz, int& xyzEntered, double& x, double& y, double& z, int xEntered, int yEntered, int zEntered, NNClassifer& data, vector<vector<double>>& trainingData, Menu& m);
 
+	/// @brief Function to display and allow selection of the 3 cooridinate entries
+	/// 
+	/// This function provides the user with the options of the 3 coordinates and allows constant entry of their values
 	int sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered);
 };
 

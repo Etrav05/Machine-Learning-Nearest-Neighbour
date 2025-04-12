@@ -22,4 +22,9 @@ public:
 	/// 
 	/// This function is purely virtual and is to be defined by derived classes
 	virtual vector<vector<double>> createCoordinateGroups(string& filename) = 0;
+
+	/// @brief Pure virtual function to get store the vector group of vectors created by the "createCoordinateGroups" function to a file named "results.txt"
+	/// 
+	/// This function is purely virtual and is to be defined by derived classes
+	virtual bool saveResultsToFile(vector<vector<double>>& results) = 0;
 };
