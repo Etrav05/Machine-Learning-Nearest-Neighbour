@@ -1,8 +1,10 @@
 #include "menu.h"
+#include "AcceptInput.h"
 #include "KNN_Classifier.h"
 #include "NN_Classifier.h"
 #include "Another_Classifier.h"
 #include "Exception_SampleInput.h"
+#include "AcceptInput.h"
 #include <cctype>
 
 using namespace std;
@@ -112,7 +114,7 @@ int Menu::NNMenu(int& selected) {
         case 0: // enter sample data (x,y,z) option
         {
             system("cls");
-            Menu sampleDataOption;
+            AcceptInput sampleDataOption;
             int selected = 0;
             double x = 0, y = 0, z = 0;
             int xEntered = 0, yEntered = 0, zEntered = 0;
@@ -141,11 +143,13 @@ int Menu::NNMenu(int& selected) {
                 }
 
                 vector<vector<double>> trainingData = rwf.createCoordinateGroups(trainingFile);
+                data.training(trainingData); // save this training data to the class attribute
+
                 vector<vector<double>> testData = rwf.createCoordinateGroups(testFile);
 
                 for (int i = 0; i < testData.size(); i++) {
                     vector<double> testPoint = testData[i];
-                    vector<double> result = data.performClassification(testPoint, trainingData);
+                    vector<double> result = data.performClassification(testPoint);
                     results.push_back(result); // push each result to the "results" vector group
 
                     cout << "Calculating line " << setw(3) << i + 1 << ": ( "  // this block is just to make it so the prints will all be aligned (improves readability up to the hundreds)
@@ -169,58 +173,6 @@ int Menu::NNMenu(int& selected) {
 
     else if (ch == 27) { // escape key here if we ever need to go back
            return 1;    // return a special value to indicate "back"
-    }
-
-    return 0;
-}
-
-int Menu::sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered) { // output will be orientation 
-    Menu m;
-    NNClassifer data;
-    ReadWriteFile rwf;
-
-    m.hideCursor(0);             // hides the cursor while redrawing
-    m.setCursorPosition(0, 0);  // redraws the console screen (Windows)
-    cout << "Enter orientation sample data:\n" << endl;
-
-    cout << (selected == 0 ? " >" : " ") << "    x = " << (xEntered == 1 ? x : 0) << " " << endl; // will allow the user to see their entries as they go
-    cout << (selected == 1 ? " >" : " ") << "    y = " << (yEntered == 1 ? y : 0) << " " << endl;
-    cout << (selected == 2 ? " >" : " ") << "    z = " << (zEntered == 1 ? z : 0) << " " << endl;
-
-    int ch = _getch();
-
-    if (ch == 224) {
-        ch = _getch();
-
-        if (ch == 72 && selected > 0) // up Arrow
-            selected--;
-
-        else if (ch == 80 && selected < MENU_ITEMS - 1) // down Arrow
-            selected++;
-    }
-
-    else if (ch == 13) {          // enter key
-        m.setCursorPosition(0, 5); // print message below menu but continue menus funtion
-        m.hideCursor(1);          // show cursor when typing
-
-        string trainingFile = "trainingData.txt";
-        vector<vector<double>> trainingData = rwf.createCoordinateGroups(trainingFile);
-
-        switch (selected) {
-        case 0: // x          
-            handleInput(x, xEntered, x, y, z, xEntered, yEntered, zEntered, data, trainingData, m);
-            break;
-        case 1: // y
-            handleInput(y, yEntered, x, y, z, xEntered, yEntered, zEntered, data, trainingData, m);
-            break;
-        case 2: // z
-            handleInput(z, zEntered, x, y, z, xEntered, yEntered, zEntered, data, trainingData, m);
-            break;
-        }
-    }
-
-    else if (ch == 27) { // esc key
-        return 1;
     }
 
     return 0;

@@ -127,9 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AcceptInput.cpp" />
     <ClCompile Include="Another_Classifier.cpp" />
     <ClCompile Include="Position.cpp" />
-    <ClCompile Include="Exception_SampleInput.cpp" />
     <ClCompile Include="ReadWriteFile.cpp" />
     <ClCompile Include="KNN_Classifier.cpp" />
     <ClCompile Include="main.cpp" />
@@ -137,6 +137,7 @@
     <ClCompile Include="NN_Classifier.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AcceptInput.h" />
     <ClInclude Include="Another_Classifier.h" />
     <ClInclude Include="Classifier.h" />
     <ClInclude Include="DataPersistance.h" />

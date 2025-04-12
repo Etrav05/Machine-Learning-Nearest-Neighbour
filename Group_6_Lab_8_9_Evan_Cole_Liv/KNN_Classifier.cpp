@@ -13,7 +13,7 @@ void KNNClassifier::training(vector<vector<double>>& data) {
 }
 
 
-vector<double> KNNClassifier::performClassification(vector<double>& testPoint, vector<vector<double>>& trainingGroup) {
+vector<double> KNNClassifier::performClassification(vector<double>& testPoint) {
 
 	cout << "  == KNN Classifier is not implemented yet ==    " << endl; // print message
 

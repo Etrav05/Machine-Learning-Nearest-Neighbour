@@ -15,14 +15,14 @@ void NNClassifer::training(vector<vector<double>>& data) {
     this->trainingData = data;
 }
 
-vector<double> NNClassifer::performClassification(vector<double>& testPoint, vector<vector<double>>& trainingGroup) {
+vector<double> NNClassifer::performClassification(vector<double>& testPoint) {
     vector<double> result(4);
     Position p;
 
     double min = 420;
 
 
-    for (vector<double>& trainingPoint : trainingGroup) { // for each training point in our traing group
+    for (vector<double>& trainingPoint : trainingData) { // for each training point in our traing group
         double distance = p.calculateDistance(testPoint, trainingPoint);
 
         if (distance < min) {          // keep track of the shortest distance

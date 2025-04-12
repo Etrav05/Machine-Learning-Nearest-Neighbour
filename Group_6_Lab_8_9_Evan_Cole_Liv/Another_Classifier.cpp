@@ -12,7 +12,7 @@ void AnotherClassifer::training(vector<vector<double>>& data) {
 
 }
 
-vector<double> AnotherClassifer::performClassification(vector<double>& testPoint, vector<vector<double>>& trainingGroup) {
+vector<double> AnotherClassifer::performClassification(vector<double>& testPoint) {
 
 	cout << "  == Another Classifier is not implemented yet ==    " << endl; // print message
 

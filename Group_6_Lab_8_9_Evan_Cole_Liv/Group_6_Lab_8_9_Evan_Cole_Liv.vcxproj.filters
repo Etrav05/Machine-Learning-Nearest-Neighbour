@@ -36,7 +36,7 @@
     <ClCompile Include="ReadWriteFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Exception_SampleInput.cpp">
+    <ClCompile Include="AcceptInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -66,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Exception_SampleInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AcceptInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

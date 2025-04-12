@@ -17,5 +17,4 @@ public:
 	vector<vector<double>> createCoordinateGroups(string& filename); // create a vector which contatains the coordinates + label as individual groupings
 
 	bool saveResultsToFile(vector<vector<double>>& results);
-
 };
