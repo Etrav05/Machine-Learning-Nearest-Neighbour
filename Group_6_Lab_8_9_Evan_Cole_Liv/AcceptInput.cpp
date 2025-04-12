@@ -26,10 +26,10 @@ void AcceptInput::acceptSampleData(double& i) {
 
 void AcceptInput::handleInput(double& xyz, int& xyzEntered, double& x, double& y, double& z, int xEntered, int yEntered, int zEntered, NNClassifer& data, vector<vector<double>>& trainingData, Menu& m) {
     AcceptInput accept;
-    string labels[6] = { "Face up", "Face down", "Portrait", "Portrait upside down", "Landscape left", "Landscape right" };
+    string labels[6] = { "Face up", "Face down", "Portrait", "Portrait upside down", "Landscape left", "Landscape right" }; // create the corsponding label names
 
     try {
-        accept.acceptSampleData(xyz);
+        accept.acceptSampleData(xyz); // accept sample data and catch exceptions
         xyzEntered = 1;
     }
     catch (Character_Detected cd) {
@@ -43,22 +43,22 @@ void AcceptInput::handleInput(double& xyz, int& xyzEntered, double& x, double& y
 
     system("cls");
 
-    if (xEntered + yEntered + zEntered >= 2) {
+    if (xEntered + yEntered + zEntered >= 2) { // if 2 or more values have been inputted, start displaying the predicted label
 
         data.training(trainingData);
 
-        vector<double> testPoint = { x, y, z };
+        vector<double> testPoint = { x, y, z }; // perform classification on the users input agains the traingdata (NOTE: this wont be perfect as the training size is quite small)
         vector<double> result = data.performClassification(testPoint);
 
         int i = result[3];
 
         m.setCursorPosition(0, 8);
-        cout << "Predicted label: " << labels[i - 1] << endl;
+        cout << "Predicted label: " << labels[i - 1] << endl; // print predicted label
     }
 }
 
 int AcceptInput::sampleData(int& selected, double& x, double& y, double& z, int& xEntered, int& yEntered, int& zEntered) { // output will be orientation 
-    Menu m;
+    Menu m;            // initialize all objects used
     NNClassifer data;
     ReadWriteFile rwf;
     AcceptInput accept;
@@ -83,16 +83,16 @@ int AcceptInput::sampleData(int& selected, double& x, double& y, double& z, int&
             selected++;
     }
 
-    else if (ch == 13) {          // enter key
+    else if (ch == 13) {            // enter key
         m.setCursorPosition(0, 5); // print message below menu but continue menus funtion
         m.hideCursor(1);          // show cursor when typing
 
-        string trainingFile = "trainingData.txt";
-        vector<vector<double>> trainingData = rwf.createCoordinateGroups(trainingFile);
+        string trainingFile = "trainingData.txt"; // set training data to be the trainging files data
+        vector<vector<double>> trainingData = rwf.createCoordinateGroups(trainingFile); // create the large vector group of vector 
 
         switch (selected) {
         case 0: // x          
-            accept.handleInput(x, xEntered, x, y, z, xEntered, yEntered, zEntered, data, trainingData, m);
+            accept.handleInput(x, xEntered, x, y, z, xEntered, yEntered, zEntered, data, trainingData, m); // handle the users input on each case
             break;
         case 1: // y
             accept.handleInput(y, yEntered, x, y, z, xEntered, yEntered, zEntered, data, trainingData, m);

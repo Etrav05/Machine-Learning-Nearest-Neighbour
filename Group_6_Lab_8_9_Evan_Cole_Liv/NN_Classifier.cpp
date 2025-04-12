@@ -11,12 +11,12 @@
  x = landscape right
 */
 
-void NNClassifer::training(vector<vector<double>>& data) {
-    this->trainingData = data;
+void NNClassifer::training(vector<vector<double>>& data) { // assign the vector parameter to the attribute
+    this->trainingData = data; 
 }
 
 vector<double> NNClassifer::performClassification(vector<double>& testPoint) {
-    vector<double> result(4);
+    vector<double> result(4); // result vector
     Position p;
 
     double min = 420;
@@ -33,9 +33,9 @@ vector<double> NNClassifer::performClassification(vector<double>& testPoint) {
             result[0] = testPoint[0];     // if we have a new shortest distance, save the test features and the training label to a vector group (to compare labels) 
             result[1] = testPoint[1];
             result[2] = testPoint[2];
-            result[3] = trainingPoint[3];
+            result[3] = trainingPoint[3]; // label will be the closest training point to the testing point
         }
     }
 
-    return result;
+    return result; // return this created vector
 }

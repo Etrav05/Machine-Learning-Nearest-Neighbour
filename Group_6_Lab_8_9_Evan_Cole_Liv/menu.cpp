@@ -64,7 +64,7 @@ int Menu::mainMenu(int& selected) {
                 break;
             case 1:
                 { KNNClassifier notAvailable; 
-                  notAvailable.notImplemented();
+                  notAvailable.notImplemented(); // show that these classifiers are not implemented
                 } 
                 break;
             case 2:
@@ -92,7 +92,7 @@ int Menu::NNMenu(int& selected) {
     cout << "[NN Classifier selected]" << endl;
     cout << "Choose option: \n" << endl;
 
-    cout << (selected == 0 ? " >" : " ") << "    Enter sample data " << endl;
+    cout << (selected == 0 ? " >" : " ") << "    Enter sample data " << endl; // allow the user to select what function they wish to do
     cout << (selected == 1 ? " >" : " ") << "    Enter a data file " << endl;
     
     int ch = _getch();
@@ -113,14 +113,14 @@ int Menu::NNMenu(int& selected) {
         switch (selected) {
         case 0: // enter sample data (x,y,z) option
         {
-            system("cls");
-            AcceptInput sampleDataOption;
+            system("cls");                      
+            AcceptInput sampleDataOption;    // initialize all variables which must go into the sampleData function
             int selected = 0;
             double x = 0, y = 0, z = 0;
             int xEntered = 0, yEntered = 0, zEntered = 0;
 
             while (!back) {
-                back = sampleDataOption.sampleData(selected, x, y, z, xEntered, yEntered, zEntered);
+                back = sampleDataOption.sampleData(selected, x, y, z, xEntered, yEntered, zEntered); // while the user still wants to input, repeat the function
             }
             system("cls");
         }
@@ -134,10 +134,10 @@ int Menu::NNMenu(int& selected) {
             hideCursor(1);
 
             while (1) { //TODO: make a new back function
-                cout << "\nEnter file name here (or enter 'back' to select again): ";
+                cout << "\nEnter file name here (or enter 'back' to select again): "; // accept anny file
                 cin >> testFile;
 
-                if (testFile == "back") {
+                if (testFile == "back") { // allow the user to go back in menus by typing back
                     system("cls");
                     break;
                 }
@@ -145,7 +145,7 @@ int Menu::NNMenu(int& selected) {
                 vector<vector<double>> trainingData = rwf.createCoordinateGroups(trainingFile);
                 data.training(trainingData); // save this training data to the class attribute
 
-                vector<vector<double>> testData = rwf.createCoordinateGroups(testFile);
+                vector<vector<double>> testData = rwf.createCoordinateGroups(testFile); // create vector group of the testing data from the users inputted file
 
                 for (int i = 0; i < testData.size(); i++) {
                     vector<double> testPoint = testData[i];
